@@ -30,7 +30,7 @@ class PlotsController extends Controller
 
     public function plotsView()
     {
-        $plots = plot::query()->paginate(10);
+        $plots = plot::latest()->paginate(20);
         return view('admin.services.plotsView', compact('plots'));
     }
 
@@ -51,15 +51,13 @@ class PlotsController extends Controller
         $data->contact = $request->contact;
 
         // upload image
-        if ($request->hasFile('image')) {
-
-            $dir = 'public/images/houses/';
-            $path = $request->file('image')->store($dir);
-
-            $fileName = str_replace($dir, '', $path);
-            $data->image = $fileName;
+        if ($request->hasfile('image')) {
+            $file = $request->file('image');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extention;
+            $file->move('uploads/plots/', $filename);
+            $data->image = $filename;
         }
-        $data->save();
         return redirect()->back()->with('success', 'Plot has successfully added');
     }
 

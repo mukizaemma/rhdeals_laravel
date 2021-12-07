@@ -69,7 +69,8 @@ https://templatemo.com/tm-546-sixteen-clothing
             @foreach($data as $plot)
             <tr>
               <td>{{ $plot->id }}</td>
-              <td>{{ $plot->image }}</td>
+              <td> <img class="card-img-top lazyestload" src="{{ asset('storage/images/houses/'.$plot->image) }}"
+                alt="{{ $plot->title }}" style="width: 120px;"></td>
               <td>{{ $plot->location }}</td>
               <td>{{ $plot->size }}</td>
               <td>{{ $plot->price }}</td>

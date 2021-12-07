@@ -69,8 +69,10 @@ https://templatemo.com/tm-546-sixteen-clothing
             @foreach ($data as $car)
             <tr>
               <td>{{ $car->id }}</td>
-              <td>{{ $car->image }}</td>
+              <td> <img class="card-img-top lazyestload" src="{{ asset('storage/images/cars/'.$car->image) }}"
+                alt="{{ $car->title }}" style="width: 200px;"></td>
               <td>{{ $car->title }}</td>
+              <td>{{ $car->price }}</td>
               <td>{{ $car->type }}</td>
               <td>{{ $car->details }}</td>
               <td>{{ $car->contact }}</td>

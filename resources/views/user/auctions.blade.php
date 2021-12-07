@@ -49,7 +49,7 @@ https://templatemo.com/tm-546-sixteen-clothing
     <!-- Banner Ends Here -->
 
     <div class="container mt-25">
-        <h2>List of Recent Published Houses for Rent and Sale</h2>
+        <h2>List of Recent Published Cars for Rent and Sale</h2>
         <p class="mb-25">Don't Hesitate to call the house owner if you would like to</p>
 
         <table class="table table-striped">
@@ -57,29 +57,24 @@ https://templatemo.com/tm-546-sixteen-clothing
           <thead>
             <tr>
               <th>#</th>
-              <th>Image</th>
-              <th>Location</th>
-              <th>Type</th>
-              <th>Beds</th>
-              <th>Baths</th>
-              <th>Price</th>
+              <th>Insttitution</th>
+              <th>Title</th>
               <th>Details</th>
-              <th>Owner's Contact</th>
+              {{-- <th>Type</th> --}}
+              <th>Date</th>
+              <th>Contact</th>
             </tr>
           </thead>
           <tbody>
-            @foreach ($data as $house)
+            @foreach ($data as $inst)
             <tr>
-              <td>{{ $house->id }}</td>
-              <td> <img class="card-img-top lazyestload" src="{{ asset('storage/images/houses/'.$house->image) }}"
-                alt="{{ $house->title }}" style="width: 120px;"></td>
-              <td>{{ $house->location }}</td>
-              <td>{{ $house->type }}</td>
-              <td>{{ $house->beds }}</td>
-              <td>{{ $house->baths }}</td>
-              <td>{{ $house->price }}</td>
-              <td>{{ $house->details }}</td>
-              <td>{{ $house->contact }}</td>
+              <td>{{ $inst->id }}</td>
+              <td>{{ $inst->institution }}</td>
+              <td>{{ $inst->title }}</td>
+              <td>{{ $inst->details }}</td>
+              {{-- <td>{{ $inst->type }}</td> --}}
+              <td>{{ $inst->date }}</td>
+              <td>{{ $inst->contact }}</td>
 
             </tr>
             @endforeach
@@ -91,8 +86,7 @@ https://templatemo.com/tm-546-sixteen-clothing
 
 
 
-      @include('user.layouts.footer')
-
+@include('user.layouts.footer');
 
 
     <!-- Bootstrap core JavaScript -->

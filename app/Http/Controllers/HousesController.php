@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Houses;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 class HousesController extends Controller
 {
@@ -19,13 +21,13 @@ class HousesController extends Controller
 
     public function housesView()
     {
-        $data = houses::all();
+        $data = houses::latest()->paginate(20);
         return view('admin.services.housesView', compact('data'));
     }
 
     public function houseTable()
     {
-        $data = houses::all();
+        $data = houses::latest()->paginate(10);
         return view('user.houses', compact('data'));
     }
 
@@ -59,13 +61,21 @@ class HousesController extends Controller
 
         // Save an image
 
-        if ($request->hasFile('image')) {
+        // if ($request->hasFile('image')) {
 
-            $dir = 'public/images/houses/';
-            $path = $request->file('image')->store($dir);
+        //     $dir = 'public/images/houses/';
+        //     $path = $request->file('image')->store($dir);
 
-            $fileName = str_replace($dir, '', $path);
-            $data->image = $fileName;
+        //     $fileName = str_replace($dir, '', $path);
+        //     $data->image = $fileName;
+        // }
+
+        if ($request->hasfile('image')) {
+            $file = $request->file('image');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extention;
+            $file->move('uploads/houses/', $filename);
+            $data->image = $filename;
         }
 
         $data->save();

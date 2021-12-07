@@ -30,7 +30,7 @@ class TendersController extends Controller
 
     public function tendersView()
     {
-        $tenders = tender::query()->paginate(10);
+        $tenders = tender::latest()->paginate(10);
         return view('admin.services.tendersView', compact('tenders'));
     }
 

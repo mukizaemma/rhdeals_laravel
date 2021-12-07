@@ -46,6 +46,7 @@ Route::get('/housesView', [HousesController::class, 'housesView']);
 Route::get('/Plots', [PlotsController::class, 'index']);
 Route::get('/plots', [PlotsController::class, 'create']);
 Route::POST('/savePlot', [PlotsController::class, 'store']);
+Route::get('/plotsView', [PlotsController::class, 'plotsView']);
 
 Route::get('/Cars', [CarsController::class, 'index']);
 Route::get('/CarsView', [CarsController::class, 'CarsView']);
@@ -55,6 +56,7 @@ Route::POST('/saveCar', [CarsController::class, 'store']);
 Route::get('/Auctions', [AuctionsController::class, 'index']);
 Route::get('/auctions', [AuctionsController::class, 'create']);
 Route::post('/auctionsSave', [AuctionsController::class, 'store']);
+Route::get('/auctionsView', [AuctionsController::class, 'auctionsView']);
 
 
 Route::get('/Services', [AuctionsController::class, 'index']);

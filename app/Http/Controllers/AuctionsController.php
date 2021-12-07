@@ -14,7 +14,16 @@ class AuctionsController extends Controller
      */
     public function index()
     {
-        //
+        $data = Auctions::latest()->paginate(10);
+        return view('user.auctions', compact('data'));
+        // ->with('i', (request()->input('page', 1) -1) * 5);
+    }
+
+    public function auctionsView()
+    {
+        $data = auctions::latest()->paginate(20);
+        return view('admin.services.auctionsView', compact('data'));
+        // ->with('i', (request()->input('page', 1) -1) * 5);
     }
 
     /**
