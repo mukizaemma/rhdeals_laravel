@@ -32,7 +32,7 @@
               </li>
 
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle " id="stores"
+                <a class="nav-link dropdown-toggle " href="javascript:void(0)" id="stores"
                    role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{-- <i class="fas fa-photo-video nav-icon" aria-hidden="true"></i> --}}
                     <span>Career</span>
@@ -40,28 +40,28 @@
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="stores">
 
                     <li>
-                        <a class="dropdown-item " href="{{ url('/Houses') }}">Jobs</a>
+                        <a class=" nav-link dropdown-item " href="">Jobs</a>
                     </li>
                     <li>
-                        <a class="dropdown-item " href="#">Videos</a>
+                        <a class=" nav-link dropdown-item " href="#">Talents</a>
+                        <a class=" nav-link dropdown-item " href="#">Business Linkage</a>
                     </li>
 
                 </ul>
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle " id="stores"
-                   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle "  role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{-- <i class="fas fa-photo-video nav-icon" aria-hidden="true"></i> --}}
-                    <span>Others</span>
+                    <span>Accommodation</span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="stores">
 
-                    <li>
-                        <a class="dropdown-item " href="{{ url('/Houses') }}">Jobs</a>
+                    <li class="bg-primary">
+                        <a class="dropdown-item " href="">Hotels</a>
                     </li>
                     <li>
-                        <a class="dropdown-item " href="#">Videos</a>
+                        <a class="dropdown-item " href="#">Bars & Restaurants</a>
                     </li>
 
                 </ul>

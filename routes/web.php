@@ -9,6 +9,11 @@ use App\Http\Controllers\PlotsController;
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\AuctionsController;
 use App\Http\Controllers\MessagesController;
+use App\Http\Controllers\JobsCotroller;
+use App\Http\Controllers\TalentsController;
+use App\Http\Controllers\HotelsController;
+use App\Http\Controllers\BusinessController;
+use App\Http\Controllers\BarsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,8 +70,25 @@ Route::get('/Partners', [AuctionsController::class, 'index']);
 
 Route::get('/Talents', [AuctionsController::class, 'index']);
 
-Route::get('/Hotels', [AuctionsController::class, 'index']);
+Route::get('/Hotels', [HotelsController::class, 'index']);
+Route::get('/addHotel', [HotelsController::class, 'create']);
+Route::post('/saveHotel', [HotelsController::class, 'store']);
+
+Route::get('/bars', [BarsController::class, 'index']);
+Route::get('/addBarResto', [BarsController::class, 'create']);
+Route::post('/saveBar', [BarsController::class, 'store']);
 
 Route::post('/sendMessage', [MessagesController::class, 'store']);
 Route::get('/Contactus', [MessagesController::class, 'index']);
 Route::post('/contactus', [MessagesController::class, 'store']);
+
+Route::get('/jobs', [JobsCotroller::class, 'index']);
+Route::post('/saveJob', [JobsCotroller::class, 'store']);
+
+Route::get('/talents', [TalentsController::class, 'index']);
+Route::get('/createTalent', [TalentsController::class, 'create']);
+Route::post('/saveTalent', [TalentsController::class, 'store']);
+
+Route::get('/business', [BusinessController::class, 'index']);
+Route::get('/createBusiness', [BusinessController::class, 'create']);
+Route::get('/addBusiness', [BusinessController::class, 'store']);
