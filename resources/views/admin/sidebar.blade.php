@@ -95,7 +95,7 @@
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="{{ url('jobs') }}">Jobs</a></li>
                     <li class="nav-item"> <a class="nav-link" href="{{ url('createTalent') }}">Talents</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('createBusiness') }}">Business Linkage</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#>Business Linkage</a></li>
                     <li class="nav-item"> <a class="nav-link" href="#">Services</a></li>
                 </ul>
             </div>
