@@ -45,13 +45,13 @@
             <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false"
                 aria-controls="form-elements">
                 <i class="icon-columns menu-icon"></i>
-                <span class="menu-title">Real Estate</span>
+                <span class="menu-title">Houses</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="form-elements">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="{{ url('houses') }}">Houses</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('plots') }}">Pots</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('houses') }}">Add New</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('HousesView') }}">View All</a></li>
                 </ul>
             </div>
         </li>
@@ -95,8 +95,8 @@
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="{{ url('jobs') }}">Jobs</a></li>
                     <li class="nav-item"> <a class="nav-link" href="{{ url('createTalent') }}">Talents</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="#>Business Linkage</a></li>
                     <li class="nav-item"> <a class="nav-link" href="#">Services</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Business Linkage</a></li>
                 </ul>
             </div>
         </li>

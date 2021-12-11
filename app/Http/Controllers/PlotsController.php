@@ -103,6 +103,9 @@ class PlotsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = plot::find($id);
+        $data->delete();
+
+        return redirect()->back();
     }
 }

@@ -30,42 +30,22 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('Auctions') }}">Auctions</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('Hotels') }}">Hotels</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('Jobs') }}">Jobs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('Talents') }}">Talents</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Business</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('BarsResto') }}">Restaurants</a>
+              </li>
 
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle " href="javascript:void(0)" id="stores"
-                   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{-- <i class="fas fa-photo-video nav-icon" aria-hidden="true"></i> --}}
-                    <span>Career</span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="stores">
-
-                    <li>
-                        <a class=" nav-link dropdown-item " href="">Jobs</a>
-                    </li>
-                    <li>
-                        <a class=" nav-link dropdown-item " href="#">Talents</a>
-                        <a class=" nav-link dropdown-item " href="#">Business Linkage</a>
-                    </li>
-
-                </ul>
-            </li>
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle "  role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{-- <i class="fas fa-photo-video nav-icon" aria-hidden="true"></i> --}}
-                    <span>Accommodation</span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="stores">
-
-                    <li class="bg-primary">
-                        <a class="dropdown-item " href="">Hotels</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item " href="#">Bars & Restaurants</a>
-                    </li>
-
-                </ul>
-            </li>
 
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/Contactus') }}">Contacts</a>

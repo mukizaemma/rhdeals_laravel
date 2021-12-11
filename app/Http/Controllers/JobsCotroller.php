@@ -14,8 +14,14 @@ class JobsCotroller extends Controller
      */
     public function index()
     {
-        $jobs = Job::latest()->paginate(10);
+        $jobs = Job::latest()->paginate(20);
         return view('admin.services.jobs', compact('jobs'));
+    }
+
+    public function josVIew()
+    {
+        $data = Job::latest()->paginate(20);
+        return view('user.jobs', compact('data'));
     }
 
     /**
@@ -98,6 +104,9 @@ class JobsCotroller extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Job::find($id);
+        $data->delete();
+
+        return redirect()->back();
     }
 }

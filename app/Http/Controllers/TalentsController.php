@@ -14,7 +14,8 @@ class TalentsController extends Controller
      */
     public function index()
     {
-        //
+        $data = Talent::latest()->paginate(20);
+        return view('user.talents', compact('data'));
     }
 
     /**
@@ -98,6 +99,9 @@ class TalentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Talent::find($id);
+        $data->delete();
+
+        return redirect()->back();
     }
 }

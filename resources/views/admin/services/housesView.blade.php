@@ -104,8 +104,8 @@
                               <td>{{ $house->details }}</td>
                               <td>{{ $house->contact }}</td>
                               <td>
-                                <button class="btn btn-primary rounded">Edit</button>
-                                <button class="btn btn-warning rounded">Delete</button>
+                                {{-- <button class="btn btn-primary rounded">Edit</button> --}}
+                                <a href="{{ url('delete',$house->id) }}" onclick="return confirm('Are you sure to delete this?')" class="btn btn-danger">Delete</a>
                             </td>
                             </tr>
                             @endforeach

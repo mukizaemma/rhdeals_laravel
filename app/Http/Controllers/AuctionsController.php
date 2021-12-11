@@ -98,6 +98,9 @@ class AuctionsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Auctions::find($id);
+        $data->delete();
+
+        return redirect()->back();
     }
 }

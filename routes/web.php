@@ -46,11 +46,13 @@ Route::post('/saveTender', [TendersController::class, 'store']);
 Route::get('/houses', [HousesController::class, 'index']);
 Route::get('/Houses', [HousesController::class, 'housetable']);
 Route::POST('/saveHouse', [HousesController::class, 'store']);
-Route::get('/housesView', [HousesController::class, 'housesView']);
+Route::get('/HousesView', [HousesController::class, 'housesView']);
+Route::get('/delete/{id}', [HousesController::class, 'destroy']);
 
 Route::get('/Plots', [PlotsController::class, 'index']);
 Route::get('/plots', [PlotsController::class, 'create']);
 Route::POST('/savePlot', [PlotsController::class, 'store']);
+Route::get('/delete/{id}', [PlotsController::class, 'destroy']);
 Route::get('/plotsView', [PlotsController::class, 'plotsView']);
 
 Route::get('/Cars', [CarsController::class, 'index']);
@@ -61,6 +63,7 @@ Route::POST('/saveCar', [CarsController::class, 'store']);
 Route::get('/Auctions', [AuctionsController::class, 'index']);
 Route::get('/auctions', [AuctionsController::class, 'create']);
 Route::post('/auctionsSave', [AuctionsController::class, 'store']);
+Route::get('/delete/{id}', [AuctionsController::class, 'destroy']);
 Route::get('/auctionsView', [AuctionsController::class, 'auctionsView']);
 
 
@@ -73,20 +76,24 @@ Route::get('/Talents', [AuctionsController::class, 'index']);
 Route::get('/Hotels', [HotelsController::class, 'index']);
 Route::get('/addHotel', [HotelsController::class, 'create']);
 Route::post('/saveHotel', [HotelsController::class, 'store']);
+Route::get('/delete/{id}', [HotelsController::class, 'destroy']);
 
-Route::get('/bars', [BarsController::class, 'index']);
+Route::get('/BarsResto', [BarsController::class, 'index']);
 Route::get('/addBarResto', [BarsController::class, 'create']);
 Route::post('/saveBar', [BarsController::class, 'store']);
+Route::get('/delete/{id}', [BarsController::class, 'destroy']);
 
 Route::post('/sendMessage', [MessagesController::class, 'store']);
 Route::get('/Contactus', [MessagesController::class, 'index']);
 Route::post('/contactus', [MessagesController::class, 'store']);
 
 Route::get('/jobs', [JobsCotroller::class, 'index']);
+Route::get('/Jobs', [JobsCotroller::class, 'josVIew']);
 Route::post('/saveJob', [JobsCotroller::class, 'store']);
 
-Route::get('/talents', [TalentsController::class, 'index']);
+Route::get('/Talents', [TalentsController::class, 'index']);
 Route::get('/createTalent', [TalentsController::class, 'create']);
+Route::get('/delete/{id}', [TalentsController::class, 'destroy']);
 Route::post('/saveTalent', [TalentsController::class, 'store']);
 
 Route::get('/business', [BusinessController::class, 'index']);

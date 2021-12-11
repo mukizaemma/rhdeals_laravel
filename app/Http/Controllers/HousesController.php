@@ -70,12 +70,12 @@ class HousesController extends Controller
         //     $data->image = $fileName;
         // }
 
-        if ($request->hasfile('image')) {
-            $file = $request->file('image');
-            $extention = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extention;
-            $file->move('uploads/houses/', $filename);
-            $data->image = $filename;
+        if ($request->hasFile('image')) {
+            $dir = 'public/images/houses';
+            $path = $request->file('image')->store($dir);
+            $fileName = str_replace($dir, '', $path);
+
+            $data->image = $fileName;
         }
 
         $data->save();
@@ -124,6 +124,9 @@ class HousesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = houses::find($id);
+        $data->delete();
+
+        return redirect()->back();
     }
 }

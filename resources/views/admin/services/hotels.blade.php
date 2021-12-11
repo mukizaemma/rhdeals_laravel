@@ -191,8 +191,8 @@
 
                           <td>
                               <div class="btn-group">
-                                <button class="btn btn-primary">Edit</button>
-                                <button class="btn btn-danger">Delete</button>
+                                {{-- <button class="btn btn-primary">Edit</button> --}}
+                                <a href="{{ url('delete',$hotel->id) }}" onclick="return confirm('Are you sure to delete this?')" class="btn btn-danger">Delete</a>
                               </div>
                           </td>
                         </tr>

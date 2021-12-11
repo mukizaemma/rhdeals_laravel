@@ -158,7 +158,7 @@
 
                   <div class="container mt-10">
                     <h2>Recent Published Jobs</h2>
-                    <table class="table table-hover">
+                    <table class="table table-hover table-responsive">
                       <thead>
                         <tr>
                           <th>#</th>
@@ -184,8 +184,8 @@
 
                           <td>
                               <div class="btn-group">
-                                <button class="btn btn-primary">Edit</button>
-                                <button class="btn btn-danger">Delete</button>
+                                {{-- <button class="btn btn-primary">Edit</button> --}}
+                                <a href="{{ url('delete',$job->id) }}" onclick="return confirm('Are you sure to delete this?')" class="btn btn-danger">Delete</a>
                               </div>
                           </td>
                         </tr>

@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>RHD Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
     <!-- plugins:css -->
     @include('admin.css')
 
@@ -65,10 +67,10 @@
                 <div class="container" >
                     <div class="row">
                         <div class="col-4">
-                            <h1 class="title">Tenders</h1>
+                            <h1 class="title">Auctions</h1>
                         </div>
                         <div class="col-4">
-                            <a href="{{ url('/tenders') }}" class="btn btn-primary">Add New Tender</a>
+                            <a href="{{ url('/auctions') }}" class="btn btn-primary">Add New Auction</a>
                         </div>
                     </div>
 
@@ -77,7 +79,7 @@
                             <h2>List of Recent Published Auctions</h2>
                             <p class="mb-25"></p>
 
-                            <table class="table table-responsive">
+                            <table class="table table-responsive" id="datatable">
 
                               <thead>
                                 <tr>
@@ -100,8 +102,8 @@
                                   <td>{{ $auction->date }}</td>
                                   <td>{{ $auction->contact }}</td>
                                   <td>
-                                      <button class="btn btn-primary rounded">Edit</button>
-                                      <button class="btn btn-warning rounded">Delete</button>
+                                      {{-- <button class="btn btn-primary rounded">Edit</button> --}}
+                                      <a href="{{ url('delete',$auction->id) }}" onclick="return confirm('Are you sure to delete this?')" class="btn btn-danger">Delete</a>
                                   </td>
 
                                 </tr>
@@ -141,6 +143,10 @@
     <!-- Custom js for this page-->
     <script src="admin/js/dashboard.js"></script>
     <script src="admin/js/Chart.roundedBarCharts.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <!-- End custom js for this page-->
 </body>
 

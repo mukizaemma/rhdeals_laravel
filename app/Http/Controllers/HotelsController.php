@@ -14,7 +14,8 @@ class HotelsController extends Controller
      */
     public function index()
     {
-        //
+        $data = Hotel::latest()->paginate(20);
+        return view('user.hotels', compact('data'));
     }
 
     /**
@@ -99,6 +100,9 @@ class HotelsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Hotel::find($id);
+        $data->delete();
+
+        return redirect()->back();
     }
 }

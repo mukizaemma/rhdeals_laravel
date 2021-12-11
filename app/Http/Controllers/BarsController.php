@@ -14,7 +14,8 @@ class BarsController extends Controller
      */
     public function index()
     {
-        //
+        $data = BarsResto::latest()->paginate(20);
+        return view('user.barsResto', compact('data'));
     }
 
     /**
@@ -99,6 +100,9 @@ class BarsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = BarsResto::find($id);
+        $data->delete();
+
+        return redirect()->back();
     }
 }
