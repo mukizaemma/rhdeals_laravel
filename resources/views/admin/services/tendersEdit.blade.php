@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>RHD Admin</title>
     <!-- plugins:css -->
+    <base href="/public">
     @include('admin.css')
+
 
     <style>
         .title{
@@ -16,9 +18,6 @@
              font-size:25px;
              margin-bottom: 5px;
              /* text-align:center; */
-        }
-        .form-group{
-            margin-right: 5px;
         }
     </style>
 </head>
@@ -58,62 +57,60 @@
             @include('admin.sidebar')
             <!-- partial -->
             {{-- @include('admin.body') --}}
-            <div class="container-fluid page-body-wrapper bg-light">
+            <div class="container-fluid mt-5 bg-light">
                 <div class="container" >
+                    <a href="{{ url('/tendersView') }}" class="btn btn-primary btn-sm outlined mb-3">Back to Tenders</a>
+                    <h1 class="title">Editing Tender</h1>
+
                     <div class="row">
-                        <div class="col-4">
-                            <h1 class="title">Houses</h1>
+
+                    <div class="col-12">
+
+                        @if(session()->has('success'))
+                        <div class="alert alert-success">
+                            <button type="submit" class="close" data-dismiss="alert">X</button>
+                            {{ session()->get('success') }}
                         </div>
-                        <div class="col-4">
-                            <a href="{{ url('/houses') }}" class="btn btn-primary">Add New House</a>
-                        </div>
+                        @endif
+
+                        <form action="{{ url('/updateTender', $tender->id) }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="row ">
+                                <div class="form-group mr-5">
+                                    <label for="inst">Institution</label>
+                                    <input type="text" class="form-control" value="{{ $tender->institution }}" name="inst" id="inst">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="title">Tender's Title</label>
+                                    <input type="text" class="form-control" value="{{ $tender->title }}" name="title" id="title">
+                                  </div>
+                            </div>
+
+                              <div class="row ">
+                                    <div class="form-group">
+                                        <label for="details">Details:</label>
+                                        <textarea class="form-control" rows="5" name="details" id="details">{{ $tender->details }}</textarea>
+                                    </div>
+                                    <div class="col-4 mr-5">
+                                        <label for="deadline">Tender's Deadline</label>
+                                        <input type="date" class="form-control" value="{{ $tender->deadline }}" name="deadline" id="deadline">
+                                    </div>
+                              </div>
+                                <div class="row mb-5">
+                                    <div class="col-4">
+                                        <label for="image">Old Image</label>
+                                        <img src="{{ asset('storage/images/tenders/').$tender->image }}" width="80px">
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="image">Change the Image</label>
+                                    <input type="file" name="image">
+                                    </div>
+                                    </div>
+
+                            <button type="submit" class="btn btn-primary">Sace Changes</button>
+                          </form>
                     </div>
-
-                    <div class="container mt-25">
-                        <h2>List of Recent Published Houses for Rent and Sale</h2>
-                        <p class="mb-25">Don't Hesitate to call the house owner if you would like to</p>
-
-                        <table class="table table-responsive">
-
-                          <thead>
-                            <tr>
-                              <th>#</th>
-                              <th style="width:30%;">Image</th>
-                              <th>Title</th>
-                              <th>Location</th>
-                              <th>Type</th>
-                              <th>Beds</th>
-                              <th>Baths</th>
-                              <th>Price</th>
-                              <th>Details</th>
-                              <th>Owner's Contact</th>
-                              <th>Action</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            @foreach ($data as $house)
-                            <tr>
-                              <td>{{ $house->id }}</td>
-                              <td><img src="{{ asset('/storage/images/houses').$house->image }}" alt="{{ $house->title }}" style="width: 60px;"></td>
-                              <td>{{ $house->title }}</td>
-                              <td>{{ $house->location }}</td>
-                              <td>{{ $house->type }}</td>
-                              <td>{{ $house->beds }}</td>
-                              <td>{{ $house->baths }}</td>
-                              <td>{{ $house->price }}</td>
-                              <td>{{ $house->details }}</td>
-                              <td>{{ $house->contact }}</td>
-                              <td>
-                                <a class="btn btn-primary rounded" href="{{ url('houseEdit', $house->id) }}">Edit</a>
-                                <a href="{{ url('deleteHouse',$house->id) }}" onclick="return confirm('Are you sure to delete this?')" class="btn btn-danger">Delete</a>
-                            </td>
-                            </tr>
-                            @endforeach
-                          </tbody>
-
-                        </table>
-
-                      </div>
+                    </div>
 
                 </div>
             </div>

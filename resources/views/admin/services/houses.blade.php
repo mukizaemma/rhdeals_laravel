@@ -58,7 +58,7 @@
             @include('admin.sidebar')
             <!-- partial -->
             {{-- @include('admin.body') --}}
-            <div class="container-fluid page-body-wrapper bg-light">
+            <div class="container-fluid mt-5 bg-light">
                 <div class="container" >
                     <h1 class="title">Add new House for Rent/Sale</h1>
 

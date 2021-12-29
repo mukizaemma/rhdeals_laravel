@@ -101,7 +101,8 @@ class HousesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $house = Houses::find($id);
+        return view('admin.services.houseEdit', compact('house'));
     }
 
     /**
@@ -113,7 +114,29 @@ class HousesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Houses::find($id);
+        $data->title = $request->input('title');
+        $data->location = $request->input('location');
+        $data->type = $request->input('type');
+        $data->beds = $request->input('beds');
+        $data->baths = $request->input('baths');
+        $data->price = $request->input('price');
+        $data->details = $request->input('details');
+        $data->contact = $request->input('contact');
+
+        if (request()->hasFile('image') && request('image') != '') {
+            $dir = 'public/images/houses';
+
+            if (File::exists($dir)) {
+                unlink($dir);
+            }
+            $path = $request->file('image')->store($dir);
+            $fileName = str_replace($dir, '', $path);
+            $data->image = $fileName;
+        }
+
+        $data->update();
+        return redirect('HousesView')->with('uccess', 'House has been updated');
     }
 
     /**
@@ -125,7 +148,7 @@ class HousesController extends Controller
     public function destroy($id)
     {
         $data = houses::find($id);
-        $data->delete();
+        $data->delete($id);
 
         return redirect()->back();
     }

@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>RHD Admin</title>
     <!-- plugins:css -->
+    <base href="/public">
     @include('admin.css')
+
 
     <style>
         .title{
@@ -57,11 +59,13 @@
             {{-- @include('admin.body') --}}
             <div class="container-fluid bg-light">
                 <div class="container mt-5" >
-                    <h1 class="title">Add New Auction</h1>
+                    <a href="{{ url('/jobs') }}" class="btn btn-primary btn-sm outlined mb-3">Back to Jobs</a>
+                    <h1 class="title">Editing Job </h1>
 
                     <div class="row">
 
                     <div class="col-8">
+
                         @if(session()->has('success'))
                         <div class="alert alert-success">
                             <button type="submit" class="close" data-dismiss="alert">X</button>
@@ -69,40 +73,68 @@
                         </div>
                         @endif
 
-                        <form action="{{ url('/auctionsSave') }}" method="post" enctype="multipart/form-data">
+                        <form class="form" action="{{ url('updateTalent',$talent->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <div class="row ">
-                                <div class="form-group mr-5">
-                                    <label for="institution">Institution</label>
-                                    <input type="text" class="form-control" placeholder="Enter the institution" name="institution" id="institution">
-                                  </div>
-                                  <div class="form-group mr-3">
-                                    <label for="title">Title</label>
-                                    <input type="text" class="form-control" placeholder="Enter title" name="title" id="title">
-                                  </div>
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="projectinput1">Person Names</label>
+                                            <input type="text" id="projectinput1" class="form-control" value="{{ $talent->names }}" name="names" required="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="projectinput1">Talent Name</label>
+                                            <input type="text" id="projectinput1" class="form-control" value="{{ $talent->talent }}" name="talent" required="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="projectinput1">Contact</label>
+                                            <input type="text" id="projectinput1" class="form-control" value="{{ $talent->contact }}" name="contact">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                            <label for="projectinput8">Talent Description</label>
+                                            <textarea id="projectinput8" rows="5" class="form-control" name="details" required="">{{ $talent->details }}</textarea>
+
+                                    </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Featured Image</label>
+                                        <label id="projectinput7" class="file center-block">
+                                            <img src="{{ asset('storage/images/talents/').$talent->image }}" width="120px">
+                                            <span class="file-custom"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Change the picture</label>
+                                        <label id="projectinput7" class="file center-block">
+                                            <input type="file" id="image" name="image" >
+                                            <span class="file-custom"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="la la-check-square-o"></i> Save Changes
+                                </button>
 
                             </div>
-                                <div class="form-group">
-                                    <label for="details">Details</label>
-                                    <textarea class="form-control" rows="5" name="details" id="details"></textarea>
-                                  </div>
-
-
-                              <div class="row">
-
-                              <div class="form-group mr-3">
-                                <label for="date">Date</label>
-                                <input type="date" class="form-control" placeholder="Enter date" name="date" id="date">
-                              </div>
-
-                                <div class="form-group mr-5">
-                                    <label for="contact">Contacts</label>
-                                    <input type="text" class="form-control" placeholder="Enter the Contact" name="contact" id="contact">
-                                  </div>
-                              </div>
-
-                            <button type="submit" class="btn btn-primary">Add Action</button>
-                          </form>
+                        </form>
                     </div>
                     </div>
 

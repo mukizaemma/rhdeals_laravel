@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\BarsResto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+
 
 class BarsController extends Controller
 {
@@ -77,7 +79,8 @@ class BarsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $bar = BarsResto::find($id);
+        return view('admin.services.barEdit', compact('bar'));
     }
 
     /**
@@ -89,7 +92,30 @@ class BarsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = BarsResto::find($id);
+        $data->name = $request->input('name');
+        $data->location = $request->input('location');
+        $data->phone = $request->input('phone');
+        $data->email = $request->input('email');
+        $data->details = $request->input('details');
+
+        // update image
+
+        if (request()->hasFile('image') && request('image') != '') {
+
+            $dir = 'public/images/barsResto';
+            if (File::exists($dir)) {
+                unlink($dir);
+            }
+
+            $path = $request->file('image')->store($dir);
+            $fileName = str_replace($dir, '', $path);
+            $data->image = $fileName;
+        }
+
+        $data->update();
+
+        return redirect('barResto')->with('success', 'Restaurant has been updated');
     }
 
     /**

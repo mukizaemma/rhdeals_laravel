@@ -82,6 +82,7 @@
                               <thead>
                                 <tr>
                                   <th>#</th>
+                                  <th>Logo</th>
                                   <th>Institution</th>
                                   <th>Title</th>
                                   <th>Decription</th>
@@ -93,13 +94,14 @@
                                 @foreach ($tenders as $tender)
                                 <tr>
                                   <td>{{ $tender->id }}</td>
+                                  <td><img src="{{ asset('storage/images/tenders/').$tender->image }}" alt=""></td>
                                   <td>{{ $tender->institution }}</td>
                                   <td>{{ $tender->title }}</td>
                                   <td>{{ $tender->details }}</td>
                                   <td>{{ $tender->deadline }}</td>
                                   <td>
-                                      <button class="btn btn-primary rounded">Edit</button>
-                                      <button class="btn btn-warning rounded">Delete</button>
+                                      <a class="btn btn-primary rounded" href="{{ url('editTender', $tender->id)}}"><i class="fas fas-edit"></i>Edit</a>
+                                      <a class="btn btn-warning rounded" href="{{ url('deleteTender', $tender->id) }}" onclick="return confirm('Are yoou sure to delete this ?')"><i class="fa fa-trash">Delete</i></a>
                                   </td>
 
                                 </tr>

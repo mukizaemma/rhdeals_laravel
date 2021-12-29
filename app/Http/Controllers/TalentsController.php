@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Talent;
+use Illuminate\Support\Facades\File;
 
 class TalentsController extends Controller
 {
@@ -76,7 +77,8 @@ class TalentsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $talent = Talent::find($id);
+        return view('admin.services.talentEdit', compact('talent'));
     }
 
     /**
@@ -88,7 +90,27 @@ class TalentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Talent::find($id);
+        $data->names = $request->input('names');
+        $data->talent = $request->input('talent');
+        $data->contact = $request->input('contact');
+        $data->details = $request->input('details');
+
+        if (request()->hasFile('image') && request('image') != '') {
+
+            $dir = 'public/images/talents';
+            if (File::exists($dir)) {
+                unlink($dir);
+            }
+
+            $path = $request->file('image')->store($dir);
+            $fileName = str_replace($dir, '', $path);
+            $data->image = $fileName;
+
+            $data->update();
+
+            return redirect('talents')->with('success', 'Talent has been updated');
+        }
     }
 
     /**
@@ -102,6 +124,6 @@ class TalentsController extends Controller
         $data = Talent::find($id);
         $data->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Tender has been deleted successfully');
     }
 }

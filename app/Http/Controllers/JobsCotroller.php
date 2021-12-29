@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Job;
+use BaconQrCode\Renderer\RendererStyle\Fill;
+use Illuminate\Support\Facades\File;
 
 class JobsCotroller extends Controller
 {
@@ -81,7 +83,8 @@ class JobsCotroller extends Controller
      */
     public function edit($id)
     {
-        //
+        $job = Job::find($id);
+        return view('admin.services.jobEdit', compact('job'));
     }
 
     /**
@@ -93,7 +96,29 @@ class JobsCotroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Job::find($id);
+        $data->institution = $request->input('institution');
+        $data->title = $request->input('title');
+        $data->deadline = $request->input('deadline');
+        $data->details = $request->input('details');
+
+        // update image
+
+        if (request()->hasFile('image') && request('image') != '') {
+            $dir = 'public/images/jobs';
+
+            if (File::exists($dir)) {
+                unlink($dir);
+            }
+
+            $path = $request->file('image')->store($dir);
+            $fileName = str_replace($dir, '', $path);
+            $data->image = $fileName;
+
+            $data->update();
+
+            return redirect('jobs')->with('success', 'Job has been updated');
+        }
     }
 
     /**
@@ -107,6 +132,6 @@ class JobsCotroller extends Controller
         $data = Job::find($id);
         $data->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'JOb has been deleted ');
     }
 }

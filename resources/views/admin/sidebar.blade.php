@@ -23,7 +23,7 @@
             </div>
         </li> --}}
 
-        <li class="nav-item">
+        <li class="nav-item ">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
                 aria-controls="ui-basic">
                 <i class="icon-layout menu-icon"></i>
@@ -94,7 +94,7 @@
             <div class="collapse" id="icons">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="{{ url('jobs') }}">Jobs</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('createTalent') }}">Talents</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('talents') }}">Talents</a></li>
                     <li class="nav-item"> <a class="nav-link" href="#">Services</a></li>
                     <li class="nav-item"> <a class="nav-link" href="#">Business Linkage</a></li>
                 </ul>
@@ -110,8 +110,8 @@
             </a>
             <div class="collapse" id="icons">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('addHotel') }}">Hotels</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('addBarResto') }}">Bars & Restaurants</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('hotels') }}">Hotels</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('barResto') }}">Bars & Restaurants</a></li>
 
                 </ul>
             </div>

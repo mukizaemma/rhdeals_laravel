@@ -102,8 +102,8 @@
                                   <td>{{ $auction->date }}</td>
                                   <td>{{ $auction->contact }}</td>
                                   <td>
-                                      {{-- <button class="btn btn-primary rounded">Edit</button> --}}
-                                      <a href="{{ url('delete',$auction->id) }}" onclick="return confirm('Are you sure to delete this?')" class="btn btn-danger">Delete</a>
+                                      <a class="btn btn-primary rounded" href="{{ url('editAuction', $auction->id) }}">Edit</a>
+                                      <a href="{{ url('deleteAuction',$auction->id) }}" onclick="return confirm('Are you sure to delete this?')" class="btn btn-danger">Delete</a>
                                   </td>
 
                                 </tr>

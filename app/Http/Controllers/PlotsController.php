@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Plot;
+use Illuminate\Support\Facades\File;
 
 class PlotsController extends Controller
 {
@@ -14,7 +15,7 @@ class PlotsController extends Controller
      */
     public function index()
     {
-        $data = plot::all();
+        $data = plot::latest()->paginate(20);
         return view('user.plots', compact('data'));
     }
 
@@ -80,7 +81,8 @@ class PlotsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $plot = Plot::find($id);
+        return view('admin.services.plotEdit', compact('plot'));
     }
 
     /**
@@ -92,7 +94,27 @@ class PlotsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Plot::find($id);
+        $data->pnum = $request->input('pnum');
+        $data->location = $request->input('location');
+        $data->price = $request->input('price');
+        $data->details = $request->input('details');
+        $data->contact = $request->input('contact');
+
+        if (request()->hasFile('image')) {
+            $dir = 'public/images/houses';
+            if (File::exists($dir)) {
+                unlink($dir);
+            }
+
+            $path = $request->file('image')->store($dir);
+            $filename = str_replace($dir, '', $path);
+            $data->image = $filename;
+        }
+
+        $data->update();
+
+        return redirect('plotsView')->with('success', 'Plot has been updated');
     }
 
     /**
@@ -106,6 +128,6 @@ class PlotsController extends Controller
         $data = plot::find($id);
         $data->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Plot has deleted successfyll');
     }
 }

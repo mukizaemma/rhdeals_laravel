@@ -69,7 +69,7 @@
                         </div>
                     </div>
 
-                    <div class="container mt-25">
+                    <div class="container-fluid mt-25">
                         <h2>List of Recent Published Plots for Sale</h2>
                         <p class="mb-25">Don't Hesitate to call the house owner if you would like to</p>
 
@@ -98,8 +98,8 @@
                               <td>{{ $plot->details }}</td>
                               <td>{{ $plot->contact }}</td>
                               <td>
-                                {{-- <button class="btn btn-primary rounded">Edit</button> --}}
-                                <a href="{{ url('delete',$plot->id) }}" onclick="return confirm('Are you sure to delete this?')" class="btn btn-danger">Delete</a>
+                                <a class="btn btn-primary rounded" href="{{ url('plotEdit', $plot->id )}}">Edit</a>
+                                <a href="{{ url('deletePlot',$plot->id) }}" onclick="return confirm('Are you sure to delete this?')" class="btn btn-danger">Delete</a>
                             </td>
                             </tr>
                             @endforeach

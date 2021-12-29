@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>RHD Admin</title>
     <!-- plugins:css -->
+    <base href="/public">
     @include('admin.css')
+
 
     <style>
         .title{
@@ -57,11 +59,13 @@
             {{-- @include('admin.body') --}}
             <div class="container-fluid bg-light">
                 <div class="container mt-5" >
-                    <h1 class="title">Add New Auction</h1>
+                    <a href="{{ url('/jobs') }}" class="btn btn-primary btn-sm outlined mb-3">Back to Jobs</a>
+                    <h1 class="title">Editing Job </h1>
 
                     <div class="row">
 
                     <div class="col-8">
+
                         @if(session()->has('success'))
                         <div class="alert alert-success">
                             <button type="submit" class="close" data-dismiss="alert">X</button>
@@ -69,40 +73,60 @@
                         </div>
                         @endif
 
-                        <form action="{{ url('/auctionsSave') }}" method="post" enctype="multipart/form-data">
+                        <form class="form" action="{{ url('jobSave', $job->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <div class="row ">
-                                <div class="form-group mr-5">
-                                    <label for="institution">Institution</label>
-                                    <input type="text" class="form-control" placeholder="Enter the institution" name="institution" id="institution">
-                                  </div>
-                                  <div class="form-group mr-3">
-                                    <label for="title">Title</label>
-                                    <input type="text" class="form-control" placeholder="Enter title" name="title" id="title">
-                                  </div>
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="projectinput1">Institution</label>
+                                            <input type="text" id="projectinput1" class="form-control" value="{{ $job->institution }}" name="institution" required="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="projectinput1">Job Title</label>
+                                            <input type="text" id="projectinput1" class="form-control" value="{{ $job->title }}" name="title" required="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="projectinput1">Deadline</label>
+                                            <input type="date" id="projectinput1" class="form-control" value="{{ $job->deadline }}" name="deadline" required="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-12">
+                                            <label for="projectinput8">Job Description</label>
+                                            <textarea id="projectinput8" rows="5" class="form-control" name="details" placeholder="Job Description">{{ $job->details }}</textarea>
+
+                                    </div>
+                            </div>
+
+                            <div class="row mb-5">
+                                <div class="col-4">
+                                    <label for="image">Old Image</label>
+                                    <img src="{{ asset('storage/images/jobs/').$job->image }}" width="80px">
+                                </div>
+                                <div class="col-4">
+                                    <label for="image">Change the Image</label>
+                                <input type="file" name="image">
+                                </div>
+                                </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-save"></i> Save Changes
+                                </button>
 
                             </div>
-                                <div class="form-group">
-                                    <label for="details">Details</label>
-                                    <textarea class="form-control" rows="5" name="details" id="details"></textarea>
-                                  </div>
-
-
-                              <div class="row">
-
-                              <div class="form-group mr-3">
-                                <label for="date">Date</label>
-                                <input type="date" class="form-control" placeholder="Enter date" name="date" id="date">
-                              </div>
-
-                                <div class="form-group mr-5">
-                                    <label for="contact">Contacts</label>
-                                    <input type="text" class="form-control" placeholder="Enter the Contact" name="contact" id="contact">
-                                  </div>
-                              </div>
-
-                            <button type="submit" class="btn btn-primary">Add Action</button>
-                          </form>
+                        </form>
                     </div>
                     </div>
 

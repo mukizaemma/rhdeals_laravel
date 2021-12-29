@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Hotel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class HotelsController extends Controller
 {
@@ -77,7 +78,8 @@ class HotelsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $hotel = Hotel::find($id);
+        return view('admin.services.hotelEdit', compact('hotel'));
     }
 
     /**
@@ -89,7 +91,29 @@ class HotelsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Hotel::find($id);
+        $data->hotel = $request->input('hotel');
+        $data->location = $request->input('location');
+        $data->phone = $request->input('phone');
+        $data->email = $request->input('email');
+        $data->details = $request->input('details');
+
+        // update image
+        if (request()->hasFile('image') && request('image') != '') {
+
+            $dir = 'public/images/hotels';
+            if (File::exists($dir)) {
+                unlink($dir);
+            }
+
+            $path = $request->file('image')->store($dir);
+            $fileName = str_replace($dir, '', $path);
+            $data->image = $fileName;
+        }
+
+        $data->update();
+
+        return redirect('hotels')->with('success', 'Hotel has been updated');
     }
 
     /**

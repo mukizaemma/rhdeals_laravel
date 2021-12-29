@@ -75,7 +75,8 @@ class AuctionsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $auction = Auctions::find($id);
+        return view('admin.services.auctionEdit', compact('auction'));
     }
 
     /**
@@ -87,7 +88,16 @@ class AuctionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Auctions::find($id);
+        $data->institution = $request->input('institution');
+        $data->title = $request->input('title');
+        $data->details = $request->input('details');
+        $data->date = $request->input('date');
+        $data->contact = $request->input('contact');
+
+        $data->update();
+
+        return redirect('auctionsView')->with('success', 'Auction has been updated');
     }
 
     /**
@@ -101,6 +111,6 @@ class AuctionsController extends Controller
         $data = Auctions::find($id);
         $data->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Auction has been deleted');
     }
 }

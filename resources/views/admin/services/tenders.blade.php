@@ -57,11 +57,13 @@
             {{-- @include('admin.body') --}}
             <div class="container-fluid page-body-wrapper bg-light">
                 <div class="container" >
-                    <h1 class="title">Add Tenders</h1>
+                    <a href="{{ url('/tendersView') }}" class="btn btn-primary btn-sm outlined mb-3">Back to Tenders</a>
+                    <h1 class="title">Adding new Tenders</h1>
 
                     <div class="row">
 
-                    <div class="col-6">
+                    <div class="col-8">
+
                         @if(session()->has('success'))
                         <div class="alert alert-success">
                             <button type="submit" class="close" data-dismiss="alert">X</button>

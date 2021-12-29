@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tender;
+// use Illuminate\Http\File;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 
 class TendersController extends Controller
@@ -79,9 +81,10 @@ class TendersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editTender($id)
     {
-        //
+        $tender = Tender::find($id);
+        return view('admin.services.tendersEdit', compact('tender'));
     }
 
     /**
@@ -91,9 +94,28 @@ class TendersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateTender(Request $request, $id)
     {
-        //
+        $data = Tender::find($id);
+        $data->institution = $request->input('inst');
+        $data->title = $request->input('title');
+        $data->details = $request->input('details');
+        $data->deadline = $request->input('deadline');
+
+        if (request()->hasFile('image') && request('image') != '') {
+            $dir = 'public/images/tenders/';
+
+            if (File::exists($dir)) {
+                unlink($dir);
+            }
+            $path = $request->file('image')->store($dir);
+            $fileName = str_replace($dir, '', $path);
+            $data->image = $fileName;
+        }
+
+        $data->update();
+
+        return redirect('tendersView')->with('success', 'Tender Updated Successfully');
     }
 
     /**
@@ -104,6 +126,9 @@ class TendersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Tender::find($id);
+        $data->delete($id);
+
+        return redirect()->back()->with('success', 'Tender has been deleted successfully');
     }
 }
