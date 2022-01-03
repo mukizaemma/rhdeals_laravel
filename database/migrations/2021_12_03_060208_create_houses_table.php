@@ -21,7 +21,7 @@ class CreateHousesTable extends Migration
             $table->string('beds');
             $table->string('baths');
             $table->string('price');
-            $table->string('details');
+            $table->longText('details');
             $table->string('contact')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();

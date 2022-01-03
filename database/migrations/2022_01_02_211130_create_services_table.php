@@ -16,7 +16,7 @@ class CreateServicesTable extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('details');
+            $table->longText('details');
             $table->string('provider')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();

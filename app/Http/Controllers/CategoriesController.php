@@ -21,8 +21,8 @@ class CategoriesController extends Controller
 
     public function showCat()
     {
-        $cat = Categories::latest();
-        return view('user.layouts.categories', compact('cat'));
+        $categories = Categories::all();
+        return view('user.layouts.categories', compact('categories'));
     }
     /**
      * Show the form for creating a new resource.

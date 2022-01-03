@@ -18,7 +18,9 @@ class HomeController extends Controller
         if ($usertype == '1') {
             return view('admin.home');
         } else {
-            return view('user.home');
+
+            $categories = Categories::all();
+            return view('user.home', compact('categories'));
         }
     }
 
@@ -28,8 +30,8 @@ class HomeController extends Controller
             return redirect('redirect');
         } else {
             $data = houses::all();
-            $cat = Categories::all();
-            return view('user.home')->with(compact('data', 'cat'));
+            $categories = Categories::all();
+            return view('user.home')->with(compact('data', 'categories'));
         }
     }
 }

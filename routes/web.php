@@ -36,6 +36,7 @@ Route::get('/redirect', [HomeController::class, 'redirect']);
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/Categories', [CategoriesController::class, 'index']);
+// Route::get('/Categories', [CategoriesController::class, 'showCat']);
 Route::post('/saveCat', [CategoriesController::class, 'store']);
 Route::get('/editCat/{id}', [CategoriesController::class, 'edit']);
 Route::post('/updateCat/{id}', [CategoriesController::class, 'update']);
@@ -122,6 +123,8 @@ Route::post('/updateBar/{id}', [BarsController::class, 'update']);
 Route::post('/sendMessage', [MessagesController::class, 'store']);
 Route::get('/Contactus', [MessagesController::class, 'index']);
 Route::post('/contactus', [MessagesController::class, 'store']);
+Route::get('/mails', [MessagesController::class, 'mails']);
+Route::get('/reply/{id}', [MessagesController::class, 'reply']);
 
 Route::get('/jobs', [JobsCotroller::class, 'index']);
 Route::get('/Jobs', [JobsCotroller::class, 'josVIew']);

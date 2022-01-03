@@ -6,7 +6,7 @@
             <span class="shape shape-right bg-info"></span>
           </div>
       <div class="row">
-          @foreach ($cat as $cat )
+          @foreach($categories as $cat)
 
         <div class="col-sm-4 col-lg-3 col-xs-12">
           <div class="card">

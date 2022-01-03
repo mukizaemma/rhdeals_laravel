@@ -17,7 +17,7 @@ class CreateTendersTable extends Migration
             $table->id();
             $table->string('institution');
             $table->string('title');
-            $table->string('details');
+            $table->longText('details');
             $table->string('deadline')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();

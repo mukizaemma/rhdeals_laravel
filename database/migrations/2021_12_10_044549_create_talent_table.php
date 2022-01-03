@@ -17,7 +17,7 @@ class CreateTalentTable extends Migration
             $table->id();
             $table->string('names');
             $table->string('talent');
-            $table->string('details');
+            $table->longText('details');
             $table->string('image')->nullable();
             $table->string('contact')->nullable();
             $table->timestamps();

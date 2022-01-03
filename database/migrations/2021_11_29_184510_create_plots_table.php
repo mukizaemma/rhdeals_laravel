@@ -19,7 +19,7 @@ class CreatePlotsTable extends Migration
             $table->string('location');
             $table->string('price');
             $table->string('size')->nullable();
-            $table->string('details');
+            $table->longText('details');
             $table->string('contact');
             $table->string('image')->nullable();
             $table->timestamps();

@@ -17,7 +17,7 @@ class CreateAuctionsTable extends Migration
             $table->id();
             $table->string('institution');
             $table->string('title');
-            $table->string('details');
+            $table->longText('details');
             $table->string('date');
             $table->string('contact');
             $table->timestamps();

@@ -19,7 +19,7 @@ class CreateJobsTable extends Migration
             $table->string('title');
             $table->string('deadline');
             $table->string('image');
-            $table->string('details');
+            $table->longText('details');
             $table->timestamps();
         });
     }

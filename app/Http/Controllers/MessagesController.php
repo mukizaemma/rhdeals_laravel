@@ -87,6 +87,21 @@ class MessagesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Message::find($id);
+        $data->delete($id);
+
+        return redirect()->back()->with('success', 'Mail has been deleted');
+    }
+
+    public function mails()
+    {
+        $mail = Message::all();
+        return view('admin.services.mail', compact('mail'));
+    }
+
+    public function reply($id)
+    {
+        $mail = Message::find($id);
+        return view('admin.services.mailReply', compact('mail'));
     }
 }
