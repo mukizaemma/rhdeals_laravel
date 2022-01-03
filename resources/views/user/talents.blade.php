@@ -70,7 +70,7 @@ https://templatemo.com/tm-546-sixteen-clothing
 
               <tr>
                 <td>{{ $talent->id }}</td>
-                <td><img src="{{ asset('storage/images/talents/').$talent->image }}" alt="" style="width: 80px;"></td>
+                <td><img src="{{ asset('storage/images/talents/').$talent->image }}" alt="" style="width: 120px;"></td>
                 <td>{{ $talent->names }}</td>
                 <td>{{ $talent->talent }}</td>
                 <td style="width: 300px;">{{ $talent->details }}</td>

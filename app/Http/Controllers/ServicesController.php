@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
 use Illuminate\Http\Request;
-use App\Models\Categories;
 use Illuminate\Support\Facades\File;
 
-class CategoriesController extends Controller
+class ServicesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,15 +15,11 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Categories::all();
-        return view('admin.services.categories', compact('categories'));
+        $services = Service::latest()->paginate(20);
+
+        return view('user.services', compact('services'));
     }
 
-    public function showCat()
-    {
-        $cat = Categories::latest();
-        return view('user.layouts.categories', compact('cat'));
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -31,7 +27,8 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        $services = Service::all();
+        return view('admin.services.services', compact('services'));
     }
 
     /**
@@ -42,24 +39,25 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $data = new Categories;
-        $data->title = $request->title;
-        $data->link = $request->link;
-        $data->desc = $request->desc;
+        $data = new Service();
+        $data->title = $request->input('title');
+        $data->details = $request->input('details');
+        $data->phone = $request->input('phone');
+        $data->email = $request->input('emil');
+        $data->provider = $request->input('provider');
 
-        // Save an image
+        // upload image
 
         if ($request->hasFile('image')) {
-
-            $dir = 'public/images/categories/';
+            $dir = 'public/images/services';
             $path = $request->file('image')->store($dir);
-
             $fileName = str_replace($dir, '', $path);
+
             $data->image = $fileName;
         }
 
         $data->save();
-        return redirect()->back()->with('success', 'Category has added successfully!');
+        return redirect()->back()->with('success', 'Service has added successfully!');
     }
 
     /**
@@ -81,8 +79,8 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        $cat = Categories::find($id);
-        return view('admin.services.cateEdit', compact('cat'));
+        $services = Service::find($id);
+        return view('admin.services.serviceEdit', compact('services'));
     }
 
     /**
@@ -94,28 +92,27 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = Categories::find($id);
+        $data = Service::find($id);
         $data->title = $request->input('title');
-        $data->link = $request->input('link');
-        $data->desc = $request->input('desc');
+        $data->provider = $request->input('provider');
+        $data->details = $request->input('details');
+        $data->phone = $request->input('phone');
+        $data->email = $request->input('email');
 
-        // update image
-
-        if (request()->hasFile('image') && request('image') != '') {
-            $dir = 'public/images/categories';
-
+        if (request()->hasFile('image')) {
+            $dir = 'public/images/services';
             if (File::exists($dir)) {
                 unlink($dir);
             }
 
-            $path =  $request->file('image')->store($dir);
-            $fileName = str_replace($dir, '', $path);
-            $data->image = $fileName;
+            $path = $request->file('image')->store($dir);
+            $filename = str_replace($dir, '', $path);
+            $data->image = $filename;
         }
 
         $data->update();
 
-        return redirect('Categories')->with('success', 'Category updated successfully');
+        return redirect('services')->with('success', 'Service has been updated');
     }
 
     /**
@@ -126,9 +123,9 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        $data = Categories::find($id);
+        $data = Service::find($id);
         $data->delete($id);
 
-        return redirect('Categories')->with('success', 'Category has been deleted');
+        return redirect()->back()->with('success', 'Service has been deleted');
     }
 }

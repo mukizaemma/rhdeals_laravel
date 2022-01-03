@@ -14,6 +14,8 @@ use App\Http\Controllers\TalentsController;
 use App\Http\Controllers\HotelsController;
 use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\BarsController;
+use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\OthersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,8 +36,10 @@ Route::get('/redirect', [HomeController::class, 'redirect']);
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/Categories', [CategoriesController::class, 'index']);
-Route::get('/category', [CategoriesController::class, 'create']);
 Route::post('/saveCat', [CategoriesController::class, 'store']);
+Route::get('/editCat/{id}', [CategoriesController::class, 'edit']);
+Route::post('/updateCat/{id}', [CategoriesController::class, 'update']);
+Route::get('/catDelete/{id}', [CategoriesController::class, 'destroy']);
 
 Route::get('/Tenders', [TendersController::class, 'index']);
 Route::get('/tendersView', [TendersController::class, 'tendersView']);
@@ -76,11 +80,30 @@ Route::get('/editAuction/{id}', [AuctionsController::class, 'edit']);
 Route::post('/saveAuction/{id}', [AuctionsController::class, 'update']);
 
 
-Route::get('/Services', [AuctionsController::class, 'index']);
+Route::get('/Services', [ServicesController::class, 'index']);
+Route::get('/services', [ServicesController::class, 'create']);
+Route::post('/saveService', [ServicesController::class, 'store']);
+Route::get('/editService/{id}', [ServicesController::class, 'edit']);
+Route::post('/updateService/{id}', [ServicesController::class, 'update']);
+Route::get('/deleteService/{id}', [ServicesController::class, 'destroy']);
 
 Route::get('/Partners', [AuctionsController::class, 'index']);
 
 Route::get('/Talents', [AuctionsController::class, 'index']);
+
+Route::get('/others', [OthersController::class, 'create']);
+Route::post('/saveOther', [OthersController::class, 'store']);
+Route::get('/editOther/{id}', [OthersController::class, 'edit']);
+Route::post('/updateOther/{id}', [OthersController::class, 'update']);
+Route::get('/deleteOther/{id}', [OthersController::class, 'destroy']);
+
+Route::get('/Business', [BusinessController::class, 'index']);
+Route::get('/businesses', [BusinessController::class, 'displayBusiness']);
+Route::get('/business', [BusinessController::class, 'create']);
+Route::post('/saveBusiness', [BusinessController::class, 'store']);
+Route::get('/editBusiness/{id}', [BusinessController::class, 'edit']);
+Route::post('/updateBusiness/{id}', [BusinessController::class, 'update']);
+Route::get('/deleteBusiness/{id}', [BusinessController::class, 'destroy']);
 
 Route::get('/Hotels', [HotelsController::class, 'index']);
 Route::get('/hotels', [HotelsController::class, 'create']);
@@ -113,7 +136,3 @@ Route::get('/delete/{id}', [TalentsController::class, 'destroy']);
 Route::post('/saveTalent', [TalentsController::class, 'store']);
 Route::get('/editTalent/{id}', [TalentsController::class, 'edit']);
 Route::post('/updateTalent/{id}', [TalentsController::class, 'update']);
-
-Route::get('/business', [BusinessController::class, 'index']);
-Route::get('/createBusiness', [BusinessController::class, 'create']);
-Route::get('/addBusiness', [BusinessController::class, 'store']);

@@ -74,7 +74,7 @@
 
                     <!-- Button to Open the Modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                      Add New Business
+                      Add New Deal
                     </button>
 
                     <!-- The Modal -->
@@ -84,74 +84,71 @@
 
                           <!-- Modal Header -->
                           <div class="modal-header">
-                            <h4 class="modal-title">Adding a New Business Linkage</h4>
+                            <h4 class="modal-title">Adding a New Deal</h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                           </div>
 
                           <!-- Modal body -->
                           <div class="modal-body">
 
-                        <form class="form" action="{{ url('saveBusiness') }}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <div class="form-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="projectinput1">Title</label>
-                                            <input type="text" id="projectinput1" class="form-control" name="title" required="">
+                            <form class="form" action="{{ url('saveOther') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="projectinput1">Title</label>
+                                                <input type="text" id="projectinput1" class="form-control" placeholder="Title" name="title" required="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Advert Image</label>
+                                                <label id="projectinput7" class="file center-block">
+                                                    <input type="file" id="image" name="image" >
+                                                    <span class="file-custom"></span>
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="projectinput1">Location</label>
-                                            <input type="text" id="projectinput1" class="form-control" name="location" required="">
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="projectinput8">Deal Description</label>
+                                                <textarea id="projectinput8" rows="5" class="form-control" name="details" placeholder="Service Description"></textarea>
+                                            </div>
                                         </div>
-                                    </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="projectinput8">Business Description</label>
-                                            <textarea id="projectinput8" rows="5" class="form-control" name="details" placeholder="Details of services provided"></textarea>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="projectinput1">Price</label>
+                                                <input type="text" id="projectinput1" class="form-control" placeholder="Price" name="price">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="projectinput1">Phone</label>
+                                                <input type="text" id="projectinput1" class="form-control" placeholder="Phone" name="phone">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="projectinput1">Email</label>
+                                                <input type="email" id="projectinput1" class="form-control" placeholder="Email" name="email">
+                                            </div>
                                         </div>
                                     </div>
+
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="la la-check-square-o"></i> Add New
+                                    </button>
+
                                 </div>
-
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="projectinput1">Phone</label>
-                                            <input type="text" id="projectinput1" class="form-control" name="phone">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="projectinput1">Email</label>
-                                            <input type="email" id="projectinput1" class="form-control" name="email">
-                                        </div>
-                                    </div>
-                                </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Add advert Banner / Logo</label>
-                                        <label id="projectinput7" class="file center-block">
-                                            <input type="file" id="image" name="image" >
-                                            <span class="file-custom"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-actions">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-save"></i> Add Business
-                                </button>
-
-                            </div>
-                        </form>
+                            </form>
                           </div>
 
                           <!-- Modal footer -->
@@ -166,7 +163,7 @@
                   </div>
 
                   <div class="container mt-10">
-                    <h2>Recent Published Business Linkages</h2>
+                    <h2>Recent Published Other Deals</h2>
                     <table class="table table-hover table-responsive">
                       <thead>
                         <tr>
@@ -174,27 +171,27 @@
                           <th>Advert Banner</th>
                           <th>Title</th>
                           <th style="width: 50px;"!important>Business Description</th>
-                          <th >Location</th>
+                          <th >Price</th>
                           <th >Phone</th>
                           <th >Email</th>
                           <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                          @foreach ($business as $bus)
+                          @foreach ($others as $other)
                         <tr>
-                          <td>{{ $bus->id }}</td>
-                          <td><img src="{{ asset('storage/images/business/').$bus->image }}" alt=""></td>
-                          <td>{{ $bus->title }}</td>
-                          <td>{{ $bus->details }}</td>
-                          <td>{{ $bus->location }}</td>
-                          <td>{{ $bus->phone }}</td>
-                          <td>{{ $bus->email }}</td>
+                          <td>{{ $other->id }}</td>
+                          <td><img src="{{ asset('storage/images/others/').$other->image }}" alt=""></td>
+                          <td>{{ $other->title }}</td>
+                          <td>{{ $other->details }}</td>
+                          <td>{{ $other->price }}</td>
+                          <td>{{ $other->phone }}</td>
+                          <td>{{ $other->email }}</td>
 
                           <td>
                               <div class="btn-group">
-                                <a class="btn btn-primary" href="{{ url('editBusiness', $bus->id) }}">Edit</a>
-                                <a class="btn btn-danger" href="{{ url('deleteBusiness', $bus->id) }}" onclick="return confirm('Are you sure to delete this ?')">Delete</a>
+                                <a class="btn btn-primary" href="{{ url('editOther', $other->id) }}">Edit</a>
+                                <a class="btn btn-danger" href="{{ url('deleteOther', $other->id) }}" onclick="return confirm('Are you sure to delete this ?')">Delete</a>
                               </div>
                           </td>
                         </tr>

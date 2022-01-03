@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>RHD Admin</title>
     <!-- plugins:css -->
+    <base href="/public">
     @include('admin.css')
+
 
     <style>
         .title{
@@ -55,69 +57,91 @@
             @include('admin.sidebar')
             <!-- partial -->
             {{-- @include('admin.body') --}}
-            <div class="container-fluid page-body-wrapper bg-light">
-                <div class="container" >
-                    <h1 class="title">Add New Category / service</h1>
-                    <p>This will be displayed on the home page services</p>
+            <div class="container bg-light">
+                <div class="container mt-5" >
+                    <a href="{{ url('/others') }}" class="btn btn-primary btn-sm outlined mb-3">Back to Others Deals</a>
+                    <h1 class="title">Editing Deals </h1>
+
                     <div class="row">
 
                     <div class="col-8">
+
                         @if(session()->has('success'))
                         <div class="alert alert-success">
                             <button type="submit" class="close" data-dismiss="alert">X</button>
                             {{ session()->get('success') }}
                         </div>
                         @endif
-
-                        <form action="{{ url('/saveCat') }}" method="post" enctype="multipart/form-data">
+                        <form class="form" action="{{ url('updateOther', $others->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <div class="row ">
-                                <div class="col-md-6">
-                                    <div class="form-group mr-5">
-                                        <label for="title">Title</label>
-                                        <input type="text" class="form-control" placeholder="Enter the title" name="title" id="title">
-                                      </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    {{-- <div class="form-group mr-5"> --}}
-                                        <label for="link">Page Link</label>
-                                        <select class="form-control border-success" name="link" id="link">
-                                            <option value="None"></option>
-                                            <option value="Houses">Houses</option>
-                                            <option value="Plots">Plots</option>
-                                            <option value="Tenders">Tenders</option>
-                                            <option value="Cars">Cars for Rent & Sale</option>
-                                            <option value="Auctions">Auctions</option>
-                                            <option value="Hotels">Hotels</option>
-                                            <option value="Jobs">Jobs</option>
-                                            <option value="Talents">Talents</option>
-                                            <option value="Business">Business</option>
-                                            <option value="BarsResto">BarsResto</option>
-                                            <option value="Business">Others</option>
-
-                                        </select>
-                                      {{-- </div> --}}
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="projectinput1">Title</label>
+                                            <input type="text" id="projectinput1" class="form-control" value="{{ $others->title }}" name="title" required="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="projectinput1">Price</label>
+                                            <input type="text" id="projectinput1" class="form-control" value="{{ $others->price }}" name="price">
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="projectinput8">Deal Description</label>
+                                            <textarea id="projectinput8" rows="5" class="form-control" name="details">{{ $others->details }}</textarea>
+                                        </div>
+                                    </div>
+                            </div>
+
+                            <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group mt-4">
-                                        <label for="image">Image</label>
-                                     <input type="file" name="image">
+                                    <div class="form-group">
+                                        <label for="projectinput1">Email</label>
+                                        <input type="email" id="projectinput1" class="form-control" value="{{ $others->email }}" name="email">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="details">Details:</label>
-                                        <textarea class="form-control" rows="5" name="details" id="details"></textarea>
-                                      </div>
+                                        <label for="projectinput1">Email</label>
+                                        <input type="email" id="projectinput1" class="form-control" value="{{ $others->email }}" name="email">
+                                    </div>
                                 </div>
-
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Save</button>
-                          </form>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Featured Banner</label>
+                                            <label id="projectinput7" class="file center-block">
+                                                <img src="{{ asset('storage/images/others/').$others->image }}" alt="" width="120px">
+                                                <span class="file-custom"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Change Featured Banner</label>
+                                            <label id="projectinput7" class="file center-block">
+                                                <input type="file" id="image" name="image" >
+                                                <span class="file-custom"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="la la-check-square-o"></i> Save Chnages
+                                </button>
+
+                            </div>
+                        </form>
                     </div>
                     </div>
 

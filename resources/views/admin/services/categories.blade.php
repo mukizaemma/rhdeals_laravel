@@ -27,7 +27,7 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
         @include('admin.navbar')
         <!-- partial -->
@@ -62,7 +62,7 @@
             <!-- partial -->
             {{-- @include('admin.body') --}}
 
-            <div class="container-fluid" style="margin-top: 50px;">
+            <div class="container-fluid" style="margin-top: 50px; width:80%;">
                 @if(session()->has('success'))
                 <div class="arlert alert-success">
                     <button class="close" type="button" data-dismiss="alert">X</button>
@@ -74,7 +74,7 @@
 
                     <!-- Button to Open the Modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                      Add New Business
+                      Add New Category
                     </button>
 
                     <!-- The Modal -->
@@ -84,74 +84,67 @@
 
                           <!-- Modal Header -->
                           <div class="modal-header">
-                            <h4 class="modal-title">Adding a New Business Linkage</h4>
+                            <h4 class="modal-title">Adding a New Category</h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                           </div>
 
                           <!-- Modal body -->
                           <div class="modal-body">
-
-                        <form class="form" action="{{ url('saveBusiness') }}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <div class="form-body">
-                                <div class="row">
+                            <form action="{{ url('/saveCat') }}" method="post" enctype="multipart/form-data">
+                                @csrf
+                                <div class="row ">
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="projectinput1">Title</label>
-                                            <input type="text" id="projectinput1" class="form-control" name="title" required="">
-                                        </div>
+                                        <div class="form-group mr-5">
+                                            <label for="title">Title</label>
+                                            <input type="text" class="form-control" placeholder="Enter the title" name="title" id="title">
+                                          </div>
                                     </div>
+
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="projectinput1">Location</label>
-                                            <input type="text" id="projectinput1" class="form-control" name="location" required="">
-                                        </div>
+                                        <div class="form-group mr-5">
+                                            <label for="link">Title Link</label>
+                                            <select class="form-control border-success" name="link" id="link">
+                                                <option value="None"></option>
+                                                <option value="Houses">Houses</option>
+                                                <option value="Plots">Plots</option>
+                                                <option value="Tenders">Tenders</option>
+                                                <option value="Cars">Cars for Rent & Sale</option>
+                                                <option value="Auctions">Auctions</option>
+                                                <option value="Hotels">Hotels</option>
+                                                <option value="Jobs">Jobs</option>
+                                                <option value="Talents">Talents</option>
+                                                <option value="Business">Business</option>
+                                                <option value="BarsResto">BarsResto</option>
+                                                <option value="Business">Others</option>
+
+                                            </select>
+                                          </div>
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="projectinput8">Business Description</label>
-                                            <textarea id="projectinput8" rows="5" class="form-control" name="details" placeholder="Details of services provided"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
+                                    <div class="row">
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="projectinput1">Phone</label>
-                                            <input type="text" id="projectinput1" class="form-control" name="phone">
+                                        <div class="form-group mt-4">
+                                            <label for="image">Image</label>
+                                         <input type="file" name="image">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="projectinput1">Email</label>
-                                            <input type="email" id="projectinput1" class="form-control" name="email">
-                                        </div>
+                                            <label for="desc">Description:</label>
+                                            <textarea class="form-control" rows="5" name="desc" id="desc"></textarea>
+                                          </div>
                                     </div>
+
                                 </div>
 
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Add advert Banner / Logo</label>
-                                        <label id="projectinput7" class="file center-block">
-                                            <input type="file" id="image" name="image" >
-                                            <span class="file-custom"></span>
-                                        </label>
-                                    </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="la la-check-square-o"></i> Add Category
+                                    </button>
+
                                 </div>
-                            </div>
-
-                            <div class="form-actions">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-save"></i> Add Business
-                                </button>
-
-                            </div>
-                        </form>
+                              </form>
                           </div>
 
                           <!-- Modal footer -->
@@ -166,35 +159,33 @@
                   </div>
 
                   <div class="container mt-10">
-                    <h2>Recent Published Business Linkages</h2>
+                    <h2>Recent Categories</h2>
                     <table class="table table-hover table-responsive">
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Advert Banner</th>
-                          <th>Title</th>
-                          <th style="width: 50px;"!important>Business Description</th>
-                          <th >Location</th>
-                          <th >Phone</th>
-                          <th >Email</th>
+                          <th>Category Image</th>
+                          <th>Category Name</th>
+                          <th>Description</th>
+                          <th>Ulr Link</th>
                           <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                          @foreach ($business as $bus)
+                          @foreach ($categories as $cat)
+
+
                         <tr>
-                          <td>{{ $bus->id }}</td>
-                          <td><img src="{{ asset('storage/images/business/').$bus->image }}" alt=""></td>
-                          <td>{{ $bus->title }}</td>
-                          <td>{{ $bus->details }}</td>
-                          <td>{{ $bus->location }}</td>
-                          <td>{{ $bus->phone }}</td>
-                          <td>{{ $bus->email }}</td>
+                          <td>{{ $cat->id }}</td>
+                          <td><img src="{{ asset('storage/images/categories/').$cat->image }}" alt=""></td>
+                          <td>{{ $cat->title }}</td>
+                          <td>{{ $cat->desc }}</td>
+                          <td>{{ $cat->link }}</td>
 
                           <td>
                               <div class="btn-group">
-                                <a class="btn btn-primary" href="{{ url('editBusiness', $bus->id) }}">Edit</a>
-                                <a class="btn btn-danger" href="{{ url('deleteBusiness', $bus->id) }}" onclick="return confirm('Are you sure to delete this ?')">Delete</a>
+                                <a class="btn btn-primary" href="{{ url('editCat', $cat->id) }}">Edit</a>
+                                <a href="{{ url('catDelete',$cat->id) }}" onclick="return confirm('Are you sure to delete this?')" class="btn btn-danger">Delete</a>
                               </div>
                           </td>
                         </tr>

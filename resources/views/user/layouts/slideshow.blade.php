@@ -2,8 +2,8 @@
     <div class="owl-banner owl-carousel">
       <div class="banner-item-01">
         <div class="text-content">
-          <h3 class="text-white">Welcome to Rwanda Hot Deals</h3>
-          <h2>Rent . Sale . Buy </h2>
+          <h1 class="text-white">Welcome to Rwanda Hot Deals</h1>
+          {{-- <h2>Rent . Sale . Buy </h2> --}}
         </div>
       </div>
       <div class="banner-item-02">

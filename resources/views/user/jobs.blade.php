@@ -70,7 +70,7 @@ https://templatemo.com/tm-546-sixteen-clothing
 
               <tr>
                 <td>{{ $job->id }}</td>
-                <td><img src="{{ asset('storage/images/jobs/').$job->image }}" alt="" style="width: 80px;"></td>
+                <td><img src="{{ asset('storage/images/jobs/').$job->image }}" alt="" style="width: 120px;"></td>
                 <td>{{ $job->institution }}</td>
                 <td>{{ $job->title }}</td>
                 <td>{{ $job->deadline }}</td>

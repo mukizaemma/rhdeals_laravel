@@ -1,9 +1,9 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link" href="{{ url('/') }}">
+            <a class="nav-link" href="{{ url('Categories') }}">
                 <i class="icon-grid menu-icon"></i>
-                <span class="menu-title">Dashboard</span>
+                <span class="menu-title">Categories</span>
             </a>
         </li>
     {{-- <li class="nav-item">
@@ -95,8 +95,8 @@
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="{{ url('jobs') }}">Jobs</a></li>
                     <li class="nav-item"> <a class="nav-link" href="{{ url('talents') }}">Talents</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="#">Services</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="#">Business Linkage</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('services') }}">Services</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('business') }}">Business Linkage</a></li>
                 </ul>
             </div>
         </li>
@@ -120,12 +120,12 @@
             <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false"
                 aria-controls="icons">
                 <i class="icon-contract menu-icon"></i>
-                <span class="menu-title">Others</span>
+                <span class="menu-title">Others Sales & Rentals</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="icons">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="#">Other Services</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('others') }}">Others</a></li>
                 </ul>
             </div>
         </li>

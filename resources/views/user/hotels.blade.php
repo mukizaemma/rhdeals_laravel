@@ -71,7 +71,7 @@ https://templatemo.com/tm-546-sixteen-clothing
 
               <tr>
                 <td>{{ $hotel->id }}</td>
-                <td><img src="{{ asset('storage/images/hotels/').$hotel->image }}" alt=""></td>
+                <td><img src="{{ asset('storage/images/hotels/').$hotel->image }}" alt="" style="width: 120px;"></td>
                 <td>{{ $hotel->hotel }}</td>
                 <td>{{ $hotel->location }}</td>
                 <td>{{ $hotel->details }}</td>

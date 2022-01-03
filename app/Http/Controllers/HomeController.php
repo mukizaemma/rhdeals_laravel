@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Houses;
@@ -27,7 +28,8 @@ class HomeController extends Controller
             return redirect('redirect');
         } else {
             $data = houses::all();
-            return view('user.home', compact('data'));
+            $cat = Categories::all();
+            return view('user.home')->with(compact('data', 'cat'));
         }
     }
 }

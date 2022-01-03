@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Others;
 use Illuminate\Http\Request;
-use App\Models\Categories;
 use Illuminate\Support\Facades\File;
 
-class CategoriesController extends Controller
+class OthersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,15 +15,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Categories::all();
-        return view('admin.services.categories', compact('categories'));
+        //
     }
 
-    public function showCat()
-    {
-        $cat = Categories::latest();
-        return view('user.layouts.categories', compact('cat'));
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -31,7 +25,8 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        $others = Others::all();
+        return view('admin.services.others', compact('others'));
     }
 
     /**
@@ -42,24 +37,25 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $data = new Categories;
-        $data->title = $request->title;
-        $data->link = $request->link;
-        $data->desc = $request->desc;
+        $data = new Others();
+        $data->title = $request->input('title');
+        $data->details = $request->input('details');
+        $data->price = $request->input('price');
+        $data->phone = $request->input('phone');
+        $data->email = $request->input('email');
 
-        // Save an image
+        // uploda image
 
         if ($request->hasFile('image')) {
-
-            $dir = 'public/images/categories/';
+            $dir = 'public/images/others';
             $path = $request->file('image')->store($dir);
-
             $fileName = str_replace($dir, '', $path);
             $data->image = $fileName;
         }
 
         $data->save();
-        return redirect()->back()->with('success', 'Category has added successfully!');
+
+        return redirect()->back()->with('success', 'New deal has been saved');
     }
 
     /**
@@ -81,8 +77,8 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        $cat = Categories::find($id);
-        return view('admin.services.cateEdit', compact('cat'));
+        $others = Others::find($id);
+        return view('admin.services.othersEdit', compact('others'));
     }
 
     /**
@@ -94,15 +90,16 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = Categories::find($id);
+        $data = Others::find($id);
         $data->title = $request->input('title');
-        $data->link = $request->input('link');
-        $data->desc = $request->input('desc');
+        $data->details = $request->input('details');
+        $data->phone = $request->input('phone');
+        $data->email = $request->input('email');
 
         // update image
 
         if (request()->hasFile('image') && request('image') != '') {
-            $dir = 'public/images/categories';
+            $dir = 'public/images/others/';
 
             if (File::exists($dir)) {
                 unlink($dir);
@@ -115,7 +112,7 @@ class CategoriesController extends Controller
 
         $data->update();
 
-        return redirect('Categories')->with('success', 'Category updated successfully');
+        return redirect('business')->with('success', 'Service has been updated successfully');
     }
 
     /**
@@ -126,9 +123,9 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        $data = Categories::find($id);
+        $data = Others::find($id);
         $data->delete($id);
 
-        return redirect('Categories')->with('success', 'Category has been deleted');
+        return redirect()->back()->with('success', 'Service has been deleted');
     }
 }

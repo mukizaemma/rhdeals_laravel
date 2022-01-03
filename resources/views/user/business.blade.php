@@ -49,33 +49,34 @@ https://templatemo.com/tm-546-sixteen-clothing
     <!-- Banner Ends Here -->
 
     <div class="container mt-25">
-        <h2>List of Recent Published Bars & Restaurants</h2>
-        {{-- <p class="mb-25">Don't Hesitate to call the house owner if you would like to</p> --}}
+        <h2>List of Recent Published Business Linkage</h2>
+        <p class="mb-25">Don't Hesitate to call the house owner if you would like to</p>
 
         <table class="table table-striped">
 
           <thead>
             <tr>
                 <th>#</th>
-                <th>Picture</th>
-                <th>Bar/Resto Name</th>
-                <th>Location</th>
-                <th style="width: 50px;"!important>Services Description</th>
-                <th >Pone</th>
+                <th>Banner</th>
+                <th>Title</th>
+                <th style="width: 50px;"!important>Business Description</th>
+                <th >Location</th>
+                <th >Phone</th>
                 <th >Email</th>
               </tr>
             </thead>
             <tbody>
-                @foreach ($data as $bar)
-              <tr>
-                <td>{{ $bar->id }}</td>
-                <td><img src="{{ asset('storage/images/barsResto/').$bar->image }}" alt="" style="width: 120px;"></td>
-                <td>{{ $bar->name }}</td>
-                <td>{{ $bar->location }}</td>
-                <td style="width: 300px;">{{ $bar->details }}</td>
-                <td>{{ $bar->phone }}</td>
-                <td>{{ $bar->email }}</td>
+                @foreach ($business as $bus)
 
+
+              <tr>
+                <td>{{ $bus->id }}</td>
+                <td><img src="{{ asset('storage/images/business/').$bus->image }}" alt=""></td>
+                <td>{{ $bus->title }}</td>
+                <td>{{ $bus->details }}</td>
+                <td>{{ $bus->location }}</td>
+                <td>{{ $bus->phone }}</td>
+                <td>{{ $bus->email }}</td>
             </tr>
             @endforeach
           </tbody>

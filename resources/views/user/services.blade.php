@@ -49,32 +49,32 @@ https://templatemo.com/tm-546-sixteen-clothing
     <!-- Banner Ends Here -->
 
     <div class="container mt-25">
-        <h2>List of Recent Published Bars & Restaurants</h2>
-        {{-- <p class="mb-25">Don't Hesitate to call the house owner if you would like to</p> --}}
+        <h2>List of Recent Published Services</h2>
+        <p class="mb-25">Don't Hesitate to call the house owner if you would like to</p>
 
         <table class="table table-striped">
 
           <thead>
             <tr>
-                <th>#</th>
-                <th>Picture</th>
-                <th>Bar/Resto Name</th>
-                <th>Location</th>
-                <th style="width: 50px;"!important>Services Description</th>
-                <th >Pone</th>
-                <th >Email</th>
-              </tr>
-            </thead>
-            <tbody>
-                @foreach ($data as $bar)
-              <tr>
-                <td>{{ $bar->id }}</td>
-                <td><img src="{{ asset('storage/images/barsResto/').$bar->image }}" alt="" style="width: 120px;"></td>
-                <td>{{ $bar->name }}</td>
-                <td>{{ $bar->location }}</td>
-                <td style="width: 300px;">{{ $bar->details }}</td>
-                <td>{{ $bar->phone }}</td>
-                <td>{{ $bar->email }}</td>
+              <th>#</th>
+              <th>Image</th>
+              <th>Service Title</th>
+              <th>Description</th>
+              <th>Provider</th>
+              <th>Phone</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach ($services as $serv)
+            <tr>
+              <td>{{ $serv->id }}</td>
+              <td> <img class="card-img-top lazyestload" src="{{ asset('storage/images/services/'.$serv->image) }}"
+                alt="{{ $car->title }}" style="width: 200px;"></td>
+              <td>{{ $serv->title }}</td>
+              <td>{{ $serv->details }}</td>
+              <td>{{ $serv->phone }}</td>
+              <td>{{ $serv->email }}</td>
 
             </tr>
             @endforeach
@@ -86,8 +86,7 @@ https://templatemo.com/tm-546-sixteen-clothing
 
 
 
-      @include('user.layouts.footer')
-
+@include('user.layouts.footer');
 
 
     <!-- Bootstrap core JavaScript -->
