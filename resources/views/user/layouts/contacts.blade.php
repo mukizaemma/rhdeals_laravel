@@ -45,14 +45,16 @@
                 <form action="{{url('/sendMessage')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                     <h2 class="text-danger px-0 mb-0 mt-5">Send us a direct message</h2>
-                    <div class="form-group form-group-icon">
-                        <i class="fas fa-user" aria-hidden="true"></i>
-                        <input type="text" class="form-control border-primary" name="fname" placeholder="First name" required>
-                    </div>
-                    <div class="form-group form-group-icon">
-                        <i class="fas fa-envelope" aria-hidden="true"></i>
-                        <input type="email" class="form-control border-success" name="email" placeholder="Email address"
-                               required>
+                    <div class="row">
+                        <div class="col-md-6 form-group-icon">
+                            <i class="fas fa-user" aria-hidden="true"></i>
+                            <input type="text" class="form-control border-primary" name="fname" placeholder="First name" required>
+                        </div>
+                        <div class="col-md-6 form-group-icon">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <input type="email" class="form-control border-success" name="email" placeholder="Email address"
+                                   required>
+                        </div>
                     </div>
                     <div class="form-group form-group-icon">
                         <i class="fas fa-comments" aria-hidden="true"></i>

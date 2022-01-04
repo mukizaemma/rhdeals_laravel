@@ -49,7 +49,7 @@ https://templatemo.com/tm-546-sixteen-clothing
     <!-- Banner Ends Here -->
 
 
-    {{-- <div class="best-features">
+    <div class="best-features">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -57,6 +57,7 @@ https://templatemo.com/tm-546-sixteen-clothing
               <h2>About RWanda Hot Deals</h2>
             </div>
           </div>
+
           <div class="col-md-6">
             <div class="left-content">
               <p class="font-size-20">We are dedicated to providing the best services
@@ -80,7 +81,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           </div>
         </div>
       </div>
-    </div> --}}
+    </div>
 
     {{-- @include('user.layouts.categories') --}}
     <section class="py-8 py-md-10">

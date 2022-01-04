@@ -16,6 +16,7 @@ use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\BarsController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\OthersController;
+use App\Http\Controllers\AboutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +35,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('/redirect', [HomeController::class, 'redirect']);
 Route::get('/', [HomeController::class, 'index']);
+// Route::get('/about', [HomeController::class, 'index']);
+// Route::post('/saveAbout', [HomeController::class, 'saveAbout']);
+// Route::get('/editAbout/{id}', [HomeController::class, 'editAbout']);
+// Route::get('/updateAbout/{id}', [HomeController::class, 'updateAbout']);
 
 Route::get('/Categories', [CategoriesController::class, 'index']);
 // Route::get('/Categories', [CategoriesController::class, 'showCat']);
@@ -140,3 +145,8 @@ Route::get('/delete/{id}', [TalentsController::class, 'destroy']);
 Route::post('/saveTalent', [TalentsController::class, 'store']);
 Route::get('/editTalent/{id}', [TalentsController::class, 'edit']);
 Route::post('/updateTalent/{id}', [TalentsController::class, 'update']);
+
+Route::get('/about', [AboutController::class, 'index']);
+Route::post('/saveAbout', [AboutController::class, 'saveAbout']);
+Route::get('/editAbout/{id}', [AboutController::class, 'editAbout']);
+Route::post('/updateAbout/{id}', [AboutController::class, 'updateAbout']);
