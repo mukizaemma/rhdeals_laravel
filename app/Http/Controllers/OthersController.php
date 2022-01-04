@@ -15,7 +15,8 @@ class OthersController extends Controller
      */
     public function index()
     {
-        //
+        $others = Others::all();
+        return view('user.others', compact('others'));
     }
 
     /**

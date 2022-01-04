@@ -92,6 +92,7 @@ Route::get('/Partners', [AuctionsController::class, 'index']);
 
 Route::get('/Talents', [AuctionsController::class, 'index']);
 
+Route::get('/Others', [OthersController::class, 'index']);
 Route::get('/others', [OthersController::class, 'create']);
 Route::post('/saveOther', [OthersController::class, 'store']);
 Route::get('/editOther/{id}', [OthersController::class, 'edit']);

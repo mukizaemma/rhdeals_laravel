@@ -40,7 +40,7 @@
                 <a class="nav-link" href="{{ url('Talents') }}">Talents <br> Detection</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url('Business') }}">Business Partners</a>
+                <a class="nav-link" href="{{ url('Business') }}">Looking for a Business Partners</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('BarsResto') }}">Bars & Restaurants</a>
