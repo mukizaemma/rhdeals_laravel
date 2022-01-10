@@ -44,11 +44,27 @@ https://templatemo.com/tm-546-sixteen-clothing
     @include('user.layouts.header')
 
     <!-- Page Content -->
-    <!-- Banner Starts Here -->
-    @include('user.layouts.slideshow')
+    <section class="breadcrumb-bg mt-10" style="background-image: url(assets/images/cars.jpg);">
+        <div class="container">
+          <div class="breadcrumb-holder">
+            <div>
+              <h1 class="breadcrumb-title">Cars for Rent & Sale</h1>
+              <ul class="breadcrumb breadcrumb-transparent">
+                <li class="breadcrumb-item">
+                  <a class="text-white" href="index.html">Home</a>
+                </li>
+                <li class="breadcrumb-item text-white active" aria-current="page">
+                  Contact Us
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
     <!-- Banner Ends Here -->
 
-    <div class="container mt-25">
+    <div class="container">
         <h2>List of Recent Published Cars for Rent and Sale</h2>
         <p class="mb-25">Don't Hesitate to call the house owner if you would like to</p>
 

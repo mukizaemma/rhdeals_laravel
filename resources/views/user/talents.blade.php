@@ -45,7 +45,7 @@ https://templatemo.com/tm-546-sixteen-clothing
 
     <!-- Page Content -->
     <!-- Banner Starts Here -->
-    @include('user.layouts.slideshow')
+    {{-- @include('user.layouts.slideshow') --}}
     <!-- Banner Ends Here -->
 
     <div class="container mt-25">

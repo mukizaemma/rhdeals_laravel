@@ -45,12 +45,29 @@ https://templatemo.com/tm-546-sixteen-clothing
 
     <!-- Page Content -->
     <!-- Banner Starts Here -->
-    @include('user.layouts.slideshow')
+    {{-- @include('user.layouts.slideshow') --}}
     <!-- Banner Ends Here -->
+    <section class="breadcrumb-bg mt-10" style="background-image: url(assets/images/cars.jpg);">
+        <div class="container">
+          <div class="breadcrumb-holder">
+            <div>
+              <h1 class="breadcrumb-title">Cars for Rent & Sale</h1>
+              <ul class="breadcrumb breadcrumb-transparent">
+                <li class="breadcrumb-item">
+                  <a class="text-white" href="index.html">Home</a>
+                </li>
+                <li class="breadcrumb-item text-white active" aria-current="page">
+                  Contact Us
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <div class="container mt-25">
-        <h2>List of Recent Published Services</h2>
-        <p class="mb-25">Don't Hesitate to call the house owner if you would like to</p>
+    <div class="container">
+        <h2>List of Recent Services Linkage</h2>
+        {{-- <p class="mb-25">Don't Hesitate to call the house owner if you would like to</p> --}}
 
         <table class="table table-striped">
 
@@ -60,7 +77,6 @@ https://templatemo.com/tm-546-sixteen-clothing
               <th>Image</th>
               <th>Service Title</th>
               <th>Description</th>
-              <th>Provider</th>
               <th>Phone</th>
               <th>Email</th>
             </tr>
@@ -70,7 +86,7 @@ https://templatemo.com/tm-546-sixteen-clothing
             <tr>
               <td>{{ $serv->id }}</td>
               <td> <img class="card-img-top lazyestload" src="{{ asset('storage/images/services/'.$serv->image) }}"
-                alt="{{ $car->title }}" style="width: 200px;"></td>
+                alt="{{ $serv->title }}" style="width: 120px;"></td>
               <td>{{ $serv->title }}</td>
               <td>{{ $serv->details }}</td>
               <td>{{ $serv->phone }}</td>

@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>RHD Admin</title>
     <!-- plugins:css -->
+    <base href="/public">
     @include('admin.css')
+
 
     <style>
         .title{
@@ -16,9 +18,6 @@
              font-size:25px;
              margin-bottom: 5px;
              /* text-align:center; */
-        }
-        .form-group{
-            margin-right: 5px;
         }
     </style>
 </head>
@@ -58,13 +57,15 @@
             @include('admin.sidebar')
             <!-- partial -->
             {{-- @include('admin.body') --}}
-            <div class="container-fluid mt-5 bg-light">
-                <div class="container" >
-                    <h1 class="title">Add new House for Rent/Sale</h1>
+            <div class="container-fluid bg-light">
+                <div class="container mt-5" >
+                    <a href="{{ url('/funds') }}" class="btn btn-primary btn-sm outlined mb-3">Back to Plots</a>
+                    <h1 class="title">Editing {{ $fund->title }}</h1>
 
                     <div class="row">
 
                     <div class="col-8">
+
                         @if(session()->has('success'))
                         <div class="alert alert-success">
                             <button type="submit" class="close" data-dismiss="alert">X</button>
@@ -72,55 +73,49 @@
                         </div>
                         @endif
 
-                        <form action="{{ url('saveHouse') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ url('/saveFund', $fund->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row ">
-                                <div class="form-group">
+                                <div class="form-group mr-5">
+                                    <label for="institution">Institution</label>
+                                    <input type="text" class="form-control" value="{{ $fund->institution }}" name="institution" id="institution">
+                                  </div>
+                                  <div class="form-group mr-3">
                                     <label for="title">Title</label>
-                                    <input type="text" class="form-control" placeholder="Enter title" name="title" id="title">
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="location">Location</label>
-                                    <input type="text" class="form-control" placeholder="Enter location" name="location" id="location">
-                                  </div>
-                                  <div class="form-group mr-5">
-                                    <label for="type">Advert type:</label>
-                                    <select class="form-control" name="type" id="type">
-                                      <option></option>
-                                      <option>Rent</option>
-                                      <option>Sale</option>
-                                    </select>
-                                  </div>
-                                  <div class="form-group mr-2">
-                                    <label for="beds">Bedrooms</label>
-                                    <input type="number" class="form-control" placeholder="Enter number of beds" name="beds" id="beds">
+                                    <input type="text" class="form-control" value="{{ $fund->title }}" name="title" id="title">
                                   </div>
 
-                                  <div class="form-group">
-                                    <label for="baths">Bathrooms</label>
-                                    <input type="number" class="form-control" placeholder="Enter number of bathrooms" name="baths" id="baths">
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="price">Price</label>
-                                    <input type="text" class="form-control" placeholder="Enter the amount and specify currency" name="price" id="price">
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label for="details">Fund Conditions</label>
+                                    <textarea class="form-control" rows="5" cols="40" name="details" id="details">{{ $fund->details }}</textarea>
                                   </div>
                             </div>
-                            <div class="form-group">
-                                <label for="details">House Details:</label>
-                                <textarea class="form-control" rows="5" name="details" id="details"></textarea>
+
+                              <div class="row">
+                                <div class="form-group mr-3">
+                                    <label for="date">Date</label>
+                                    <input type="date" class="form-control" value="{{ $fund->date }}" name="deadline" id="deadline">
+                                </div>
+
+                                    <div class="form-group mr-5">
+                                        <label for="contact">Contacts</label>
+                                        <input type="text" class="form-control" value="{{ $fund->contact }}" name="contact" id="contact">
+                                    </div>
                               </div>
                               <div class="row">
-                                <div class="form-group">
-                                    <label for="contact">Owner's Contact</label>
-                                    <input type="text" class="form-control" placeholder="Enter contact of the owner" name="contact" id="contact">
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="image">Image</label>
-                                   <input type="file" name="image">
-                                  </div>
+                                <div class="col-md-4">
+                                    <label for="image">Featured Logo</label>
+                                    <img src="{{ asset('storage/images/funds').$fund->image }}" alt="" width="120px">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="image">Change Logo</label>
+                                    <input type="file" name="image">
+                                </div>
                               </div>
 
-                            <button type="submit" class="btn btn-primary">Add House</button>
+                            <button type="submit" class="btn btn-primary mt-10">Save Changes</button>
                           </form>
                     </div>
                     </div>

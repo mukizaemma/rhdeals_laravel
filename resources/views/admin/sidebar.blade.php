@@ -74,13 +74,13 @@
             <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false"
                 aria-controls="tables">
                 <i class="icon-grid-2 menu-icon"></i>
-                <span class="menu-title">Auctions</span>
+                <span class="menu-title">Funds</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="tables">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('auctions') }}">Add New Auction</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('auctionsView') }}">All Auctions</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('funds') }}">Add New Fund</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('fundsView') }}">All Funds</a></li>
                 </ul>
             </div>
         </li>
@@ -93,9 +93,9 @@
             </a>
             <div class="collapse" id="icons">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('jobs') }}">Jobs</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('talents') }}">Talents</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('services') }}">Services</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('jobs') }}">Advertised Jobs</a></li>
+                    {{-- <li class="nav-item"> <a class="nav-link" href="{{ url('talents') }}">Talents</a></li> --}}
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('services') }}">Services Linkage</a></li>
                     <li class="nav-item"> <a class="nav-link" href="{{ url('business') }}">Business Linkage</a></li>
                 </ul>
             </div>
@@ -116,39 +116,39 @@
                 </ul>
             </div>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false"
-                aria-controls="icons">
-                <i class="icon-contract menu-icon"></i>
-                <span class="menu-title">Others Sales & Rentals</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="icons">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('others') }}">Others</a></li>
-                </ul>
-            </div>
-        </li>
 
         <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false"
-                aria-controls="icons">
+            <a class="nav-link" href="{{ url('cars') }}">
                 <i class="icon-contract menu-icon"></i>
-                <span class="menu-title">Mails</span>
-                <i class="menu-arrow"></i>
+                <span class="menu-title">Cars</span>
             </a>
-            <div class="collapse" id="icons">
+        </li>
+
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url('others') }}">
+                <i class="icon-contract menu-icon"></i>
+                <span class="menu-title">Other Deals</span>
+            </a>
+            {{-- <div class="collapse" id="icons">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="{{ url('mails') }}">Messages from Contact Form</a></li>
                 </ul>
-            </div>
+            </div> --}}
+        </li>
+
+
+        <li class="nav-item">
+            <a class="nav-link"  href="{{ url('mails') }}">
+                <i class="icon-contract menu-icon"></i>
+                <span class="menu-title">Messages from Contact Form</span>
+            </a>
         </li>
 
         <li class="nav-item">
             <a class="nav-link" href="{{ url('about') }}">
                 <i class="icon-contract menu-icon"></i>
                 <span class="menu-title">About us</span>
-                <i class="menu-arrow"></i>
             </a>
             {{-- <div class="collapse" id="icons">
                 <ul class="nav flex-column sub-menu">

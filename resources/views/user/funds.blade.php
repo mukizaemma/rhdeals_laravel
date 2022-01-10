@@ -45,11 +45,28 @@ https://templatemo.com/tm-546-sixteen-clothing
 
     <!-- Page Content -->
     <!-- Banner Starts Here -->
-    @include('user.layouts.slideshow')
+    {{-- @include('user.layouts.slideshow') --}}
     <!-- Banner Ends Here -->
+    <section class="breadcrumb-bg mt-10" style="background-image: url(assets/images/cars.jpg);">
+        <div class="container">
+          <div class="breadcrumb-holder">
+            <div>
+              <h1 class="breadcrumb-title">Cars for Rent & Sale</h1>
+              <ul class="breadcrumb breadcrumb-transparent">
+                <li class="breadcrumb-item">
+                  <a class="text-white" href="index.html">Home</a>
+                </li>
+                <li class="breadcrumb-item text-white active" aria-current="page">
+                  Contact Us
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
     <div class="container mt-25">
-        <h2>List of Recent Published Cars for Rent and Sale</h2>
+        <h2>Special Finacing / Funds</h2>
         <p class="mb-25">Don't Hesitate to call the house owner if you would like to</p>
 
         <table class="table table-striped">
@@ -57,11 +74,11 @@ https://templatemo.com/tm-546-sixteen-clothing
           <thead>
             <tr>
               <th>#</th>
-              <th>Insttitution</th>
-              <th>Title</th>
-              <th>Details</th>
-              {{-- <th>Type</th> --}}
-              <th>Date</th>
+              <th>Logo</th>
+              <th>Instutition</th>
+              <th>Funds Title</th>
+              <th>Funds Conditions</th>
+              <th>Deadline</th>
               <th>Contact</th>
             </tr>
           </thead>
@@ -69,11 +86,13 @@ https://templatemo.com/tm-546-sixteen-clothing
             @foreach ($data as $inst)
             <tr>
               <td>{{ $inst->id }}</td>
+              <td><img class="card-img-top lazyestload" src="{{ asset('storage/images/funds/'.$inst->image) }}"
+                alt="{{ $inst->title }}" style="width: 200px;"></td>
               <td>{{ $inst->institution }}</td>
               <td>{{ $inst->title }}</td>
               <td>{{ $inst->details }}</td>
               {{-- <td>{{ $inst->type }}</td> --}}
-              <td>{{ $inst->date }}</td>
+              <td>{{ $inst->deadline }}</td>
               <td>{{ $inst->contact }}</td>
 
             </tr>

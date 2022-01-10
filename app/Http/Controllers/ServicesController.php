@@ -17,6 +17,13 @@ class ServicesController extends Controller
     {
         $services = Service::latest()->paginate(20);
 
+        return view('admin.services.services', compact('services'));
+    }
+
+    public function viewService()
+    {
+        $services = Service::latest()->paginate(20);
+
         return view('user.services', compact('services'));
     }
 
@@ -43,7 +50,7 @@ class ServicesController extends Controller
         $data->title = $request->input('title');
         $data->details = $request->input('details');
         $data->phone = $request->input('phone');
-        $data->email = $request->input('emil');
+        $data->email = $request->input('email');
         $data->provider = $request->input('provider');
 
         // upload image

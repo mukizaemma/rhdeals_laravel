@@ -67,16 +67,16 @@
                 <div class="container" >
                     <div class="row">
                         <div class="col-4">
-                            <h1 class="title">Auctions</h1>
+                            <h1 class="title">Funds</h1>
                         </div>
                         <div class="col-4">
-                            <a href="{{ url('/auctions') }}" class="btn btn-primary">Add New Auction</a>
+                            <a href="{{ url('/funds') }}" class="btn btn-primary">Add New Fund</a>
                         </div>
                     </div>
 
                     <div class="col-12">
                         <div class="container mt-25">
-                            <h2>List of Recent Published Auctions</h2>
+                            <h2>List of Recent Published Funds</h2>
                             <p class="mb-25"></p>
 
                             <table class="table table-responsive" id="datatable">
@@ -84,26 +84,28 @@
                               <thead>
                                 <tr>
                                   <th>#</th>
+                                  <th>Logo</th>
                                   <th>Institution</th>
                                   <th>Title</th>
-                                  <th>Details</th>
-                                  <th>Date</th>
+                                  <th>Funds Description</th>
+                                  <th>Deadline</th>
                                   <th>Contact</th>
                                   <th>Action</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                @foreach ($data as $auction)
+                                @foreach ($data as $fund)
                                 <tr>
-                                  <td>{{ $auction->id }}</td>
-                                  <td>{{ $auction->institution }}</td>
-                                  <td>{{ $auction->title }}</td>
-                                  <td>{{ $auction->details }}</td>
-                                  <td>{{ $auction->date }}</td>
-                                  <td>{{ $auction->contact }}</td>
+                                  <td>{{ $fund->id }}</td>
+                                  <td><img src="{{ asset('storage/images/funds/').$fund->image }}" alt="" width="120px"></td>
+                                  <td>{{ $fund->institution }}</td>
+                                  <td>{{ $fund->title }}</td>
+                                  <td>{{ $fund->details }}</td>
+                                  <td>{{ $fund->deadline }}</td>
+                                  <td>{{ $fund->contact }}</td>
                                   <td>
-                                      <a class="btn btn-primary rounded" href="{{ url('editAuction', $auction->id) }}">Edit</a>
-                                      <a href="{{ url('deleteAuction',$auction->id) }}" onclick="return confirm('Are you sure to delete this?')" class="btn btn-danger">Delete</a>
+                                      <a class="btn btn-primary rounded" href="{{ url('editfund', $fund->id) }}">Edit</a>
+                                      <a href="{{ url('deleteFund',$fund->id) }}" onclick="return confirm('Are you sure to delete this?')" class="btn btn-danger">Delete</a>
                                   </td>
 
                                 </tr>

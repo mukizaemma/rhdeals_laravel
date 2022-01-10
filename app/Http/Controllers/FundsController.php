@@ -2,27 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Funds;
 use Illuminate\Http\Request;
-use App\Models\Auctions;
+use Illuminate\Support\Facades\File;
 
-class AuctionsController extends Controller
+class FundsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $data = Auctions::latest()->paginate(10);
-        return view('user.auctions', compact('data'));
+        $data = Funds::latest()->paginate(10);
+        return view('user.funds', compact('data'));
         // ->with('i', (request()->input('page', 1) -1) * 5);
     }
 
-    public function auctionsView()
+    public function fundsView()
     {
-        $data = auctions::latest()->paginate(20);
-        return view('admin.services.auctionsView', compact('data'));
+        $data = Funds::latest()->paginate(20);
+        return view('admin.services.fundsView', compact('data'));
         // ->with('i', (request()->input('page', 1) -1) * 5);
     }
 
@@ -33,7 +29,7 @@ class AuctionsController extends Controller
      */
     public function create()
     {
-        return view('admin.services.auctions');
+        return view('admin.services.funds');
     }
 
     /**
@@ -44,16 +40,25 @@ class AuctionsController extends Controller
      */
     public function store(Request $request)
     {
-        $data = new auctions;
+        $data = new Funds();
         $data->institution = $request->institution;
         $data->title = $request->title;
         $data->details = $request->details;
-        $data->date = $request->date;
+        $data->deadline = $request->deadline;
         $data->contact = $request->contact;
 
 
+        // Uploading image
+        if ($request->hasFile('image')) {
+            $dir = 'public/images/funds';
+            $path = $request->file('image')->store($dir);
+            $fileName = str_replace($dir, '', $path);
+
+            $data->image = $fileName;
+        }
+
         $data->save();
-        return redirect()->back()->with('success', 'Auction has successfully added');
+        return redirect()->back()->with('success', 'Fund has successfully added');
     }
 
     /**
@@ -75,8 +80,8 @@ class AuctionsController extends Controller
      */
     public function edit($id)
     {
-        $auction = Auctions::find($id);
-        return view('admin.services.auctionEdit', compact('auction'));
+        $fund = Funds::find($id);
+        return view('admin.services.fundEdit', compact('fund'));
     }
 
     /**
@@ -88,16 +93,27 @@ class AuctionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = Auctions::find($id);
+        $data = Funds::find($id);
         $data->institution = $request->input('institution');
         $data->title = $request->input('title');
         $data->details = $request->input('details');
-        $data->date = $request->input('date');
+        $data->deadline = $request->input('deadline');
         $data->contact = $request->input('contact');
+
+        if (request()->hasFile('image') && request('image') != '') {
+            $dir = 'public/images/funds';
+            if (File::exists($dir)) {
+                unlink($dir);
+            }
+            $path = $request->file('image')->store($dir);
+            $fileName = str_replace($dir, '', $path);
+
+            $data->image = $fileName;
+        }
 
         $data->update();
 
-        return redirect('auctionsView')->with('success', 'Auction has been updated');
+        return redirect('fundsView')->with('success', 'FUnd has been updated');
     }
 
     /**
@@ -108,9 +124,9 @@ class AuctionsController extends Controller
      */
     public function destroy($id)
     {
-        $data = Auctions::find($id);
+        $data = Funds::find($id);
         $data->delete();
 
-        return redirect()->back()->with('success', 'Auction has been deleted');
+        return redirect()->back()->with('success', 'Fund has been deleted');
     }
 }

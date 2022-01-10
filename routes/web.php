@@ -17,6 +17,7 @@ use App\Http\Controllers\BarsController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\OthersController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\FundsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -73,21 +74,25 @@ Route::get('/plotEdit/{id}', [PlotsController::class, 'edit']);
 Route::post('/PlotSave/{id}', [PlotsController::class, 'update']);
 
 Route::get('/Cars', [CarsController::class, 'index']);
-Route::get('/CarsView', [CarsController::class, 'CarsView']);
+Route::get('/cars', [CarsController::class, 'CarsView']);
 Route::POST('/saveCar', [CarsController::class, 'store']);
+Route::get('/editCar/{id}', [CarsController::class, 'edit']);
+Route::post('/saveCarEdit/{id}', [CarsController::class, 'update']);
+Route::get('/deleteCar/{id}', [CarsController::class, 'destroy']);
 
 
-Route::get('/Auctions', [AuctionsController::class, 'index']);
-Route::get('/auctions', [AuctionsController::class, 'create']);
-Route::post('/auctionsSave', [AuctionsController::class, 'store']);
-Route::get('/deleteAuction/{id}', [AuctionsController::class, 'destroy']);
-Route::get('/auctionsView', [AuctionsController::class, 'auctionsView']);
-Route::get('/editAuction/{id}', [AuctionsController::class, 'edit']);
-Route::post('/saveAuction/{id}', [AuctionsController::class, 'update']);
+Route::get('/Funds', [FundsController::class, 'index']);
+Route::get('/funds', [FundsController::class, 'create']);
+Route::post('/fundsSave', [FundsController::class, 'store']);
+Route::get('/deleteFund/{id}', [FundsController::class, 'destroy']);
+Route::get('/fundsView', [FundsController::class, 'fundsView']);
+Route::get('/editfund/{id}', [FundsController::class, 'edit']);
+Route::post('/saveFund/{id}', [FundsController::class, 'update']);
 
 
-Route::get('/Services', [ServicesController::class, 'index']);
-Route::get('/services', [ServicesController::class, 'create']);
+Route::get('/Services', [ServicesController::class, 'viewService']);
+Route::get('/services', [ServicesController::class, 'index']);
+Route::get('/createService', [ServicesController::class, 'create']);
 Route::post('/saveService', [ServicesController::class, 'store']);
 Route::get('/editService/{id}', [ServicesController::class, 'edit']);
 Route::post('/updateService/{id}', [ServicesController::class, 'update']);
@@ -95,7 +100,7 @@ Route::get('/deleteService/{id}', [ServicesController::class, 'destroy']);
 
 Route::get('/Partners', [AuctionsController::class, 'index']);
 
-Route::get('/Talents', [AuctionsController::class, 'index']);
+Route::get('/services', [ServicesController::class, 'index']);
 
 Route::get('/Others', [OthersController::class, 'index']);
 Route::get('/others', [OthersController::class, 'create']);

@@ -7,17 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>RHD Admin</title>
     <!-- plugins:css -->
-    <base href="/public">
     @include('admin.css')
 
-
     <style>
-        .title{
+        .title {
             style="color: black;
-             padding-top:5px;
-             font-size:25px;
-             margin-bottom: 5px;
-             /* text-align:center; */
+padding-top: 5px;
+            font-size: 25px;
+            margin-bottom: 5px;
+            /* text-align:center; */
         }
     </style>
 </head>
@@ -58,56 +56,59 @@
             <!-- partial -->
             {{-- @include('admin.body') --}}
             <div class="container-fluid bg-light">
-                <div class="container mt-5" >
-                    <a href="{{ url('/plotsView') }}" class="btn btn-primary btn-sm outlined mb-3">Back to Plots</a>
-                    <h1 class="title">Editing Plot</h1>
+                <div class="container mt-5">
+                    <h1 class="title">Add New Auction</h1>
 
                     <div class="row">
 
-                    <div class="col-8">
-
-                        @if(session()->has('success'))
-                        <div class="alert alert-success">
-                            <button type="submit" class="close" data-dismiss="alert">X</button>
-                            {{ session()->get('success') }}
-                        </div>
-                        @endif
-
-                        <form action="{{ url('/saveAuction', $auction->id) }}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            <div class="row ">
-                                <div class="form-group mr-5">
-                                    <label for="institution">Institution</label>
-                                    <input type="text" class="form-control" value="{{ $auction->institution }}" name="institution" id="institution">
-                                  </div>
-                                  <div class="form-group mr-3">
-                                    <label for="title">Title</label>
-                                    <input type="text" class="form-control" value="{{ $auction->title }}" name="title" id="title">
-                                  </div>
-
+                        <div class="col-8">
+                            @if(session()->has('success'))
+                            <div class="alert alert-success">
+                                <button type="submit" class="close" data-dismiss="alert">X</button>
+                                {{ session()->get('success') }}
                             </div>
-                            <div class="row">
-                                <div class="form-group">
-                                    <label for="details">Details</label>
-                                    <textarea class="form-control" rows="5" cols="40" name="details" id="details">{{ $auction->details }}</textarea>
-                                  </div>
-                            </div>
+                            @endif
 
-                              <div class="row">
-                                <div class="form-group mr-3">
-                                    <label for="date">Date</label>
-                                    <input type="date" class="form-control" value="{{ $auction->date }}" name="date" id="date">
+                            <form action="{{ url('/fundsSave') }}" method="post" enctype="multipart/form-data">
+                                @csrf
+                                <div class="row ">
+                                    <div class="col-md-6">
+                                        <label for="institution">Institution</label>
+                                        <input type="text" class="form-control" placeholder="Enter the institution" name="institution" id="institution">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="image">Image</label>
+                                        <input type="file" name="image">
+                                    </div>
+                                    <div class="col-md-6 mr-3">
+                                        <label for="title">Title</label>
+                                        <input type="text" class="form-control" placeholder="Enter title" name="title" id="title">
+                                    </div>
+
                                 </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label for="details">Funds Conditions</label>
+                                        <textarea class="form-control" rows="5" name="details" id="details"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="form-group mr-3">
+                                        <label for="date">Deadline</label>
+                                        <input type="date" class="form-control" placeholder="Enter date" name="deadline" id="deadline">
+                                    </div>
 
                                     <div class="form-group mr-5">
                                         <label for="contact">Contacts</label>
-                                        <input type="text" class="form-control" value="{{ $auction->contact }}" name="contact" id="contact">
+                                        <input type="text" class="form-control" placeholder="Enter the Contact" name="contact" id="contact">
                                     </div>
-                              </div>
+                                </div>
 
-                            <button type="submit" class="btn btn-primary">Save Changes</button>
-                          </form>
-                    </div>
+                                <button type="submit" class="btn btn-primary">Add Funds</button>
+                            </form>
+                        </div>
                     </div>
 
                 </div>

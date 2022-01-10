@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Car;
-
+use Illuminate\Support\Facades\File;
 
 class CarsController extends Controller
 {
@@ -21,7 +21,8 @@ class CarsController extends Controller
 
     public function CarsView()
     {
-        //
+        $cars = Car::all();
+        return view('admin.services.cars', compact('cars'));
     }
 
     /**
@@ -29,10 +30,10 @@ class CarsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('admin.services.cars');
-    }
+    // public function create()
+    // {
+    //     return view('admin.services.cars');
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -83,7 +84,8 @@ class CarsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $car = Car::find($id);
+        return view('admin.services.carEdit', compact('car'));
     }
 
     /**
@@ -95,7 +97,28 @@ class CarsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Car::find($id);
+        $data->title = $request->input('title');
+        $data->price = $request->input('price');
+        $data->details = $request->input('details');
+        $data->type = $request->input('type');
+        $data->contact = $request->input('contact');
+
+        // upload image
+        if (request()->hasFile('image') && request('image') != '') {
+            $dir = 'public/images/cars';
+            if (File::exists($dir)) {
+                unlink($dir);
+            }
+            $path = $request->file('image')->store($dir);
+            $fileName = str_replace($dir, '', $path);
+
+            $data->image = $fileName;
+        }
+
+        $data->save();
+
+        return redirect('cars')->with('success', 'A car has been updated successfuly');
     }
 
     /**
@@ -106,6 +129,9 @@ class CarsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Car::find($id);
+        $data->delete($id);
+
+        return redirect()->back()->with('success', 'Cars has been deleted');
     }
 }

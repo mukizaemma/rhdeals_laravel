@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>RHD Admin</title>
     <!-- plugins:css -->
+    <base href="/public">
     @include('admin.css')
+
 
     <style>
         .title{
@@ -55,13 +57,15 @@
             @include('admin.sidebar')
             <!-- partial -->
             {{-- @include('admin.body') --}}
-            <div class="container-fluid bg-light">
+            <div class="container bg-light">
                 <div class="container mt-5" >
-                    <h1 class="title">Add New Auction</h1>
+                    <a href="{{ url('/cars') }}" class="btn btn-primary btn-sm outlined mb-3">Back to Cars</a>
+                    <h1 class="title">Editing Service </h1>
 
                     <div class="row">
 
                     <div class="col-8">
+
                         @if(session()->has('success'))
                         <div class="alert alert-success">
                             <button type="submit" class="close" data-dismiss="alert">X</button>
@@ -69,39 +73,47 @@
                         </div>
                         @endif
 
-                        <form action="{{ url('/auctionsSave') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('saveCarEdit', $car->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row ">
-                                <div class="form-group mr-5">
-                                    <label for="institution">Institution</label>
-                                    <input type="text" class="form-control" placeholder="Enter the institution" name="institution" id="institution">
-                                  </div>
-                                  <div class="form-group mr-3">
+                                <div class="col-md-3 mr-5">
                                     <label for="title">Title</label>
-                                    <input type="text" class="form-control" placeholder="Enter title" name="title" id="title">
+                                    <input type="text" class="form-control" value="{{ $car->title }}" name="title" id="title">
                                   </div>
-
+                                  <div class="col-md-3 mr-5">
+                                    <label for="price">Price</label>
+                                    <input type="text" class="form-control" value="{{ $car->price }}" name="price" id="price">
+                                  </div>
+                                  <div class="col-md-3 mr-5">
+                                    <label for="type">Advert type:</label>
+                                    <select class="form-control" name="type" id="type">
+                                      <option>{{ $car->type }}</option>
+                                      <option>Rent</option>
+                                      <option>Sale</option>
+                                    </select>
+                                  </div>
                             </div>
-                                <div class="form-group">
-                                    <label for="details">Details</label>
-                                    <textarea class="form-control" rows="5" name="details" id="details"></textarea>
+                            <div class="form-group">
+                                <label for="details">Details:</label>
+                                <textarea class="form-control" rows="5" name="details" id="details">{{ $car->details }}</textarea>
+                              </div>
+                              <div class="row mb-5">
+                                <div class="col-md-3">
+                                    <label for="image">Featured Car Image</label><br>
+                                 <img src="{{ asset('storage/images/cars/').$car->image }}" alt="" width="120px">
+                                </div>
+
+                                <div class="col-md-4 mr-3">
+                                    <label for="image">Change Car Image</label>
+                                 <input type="file" name="image">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="contact">Contact</label>
+                                    <input type="text" class="form-control" value="{{ $car->contact }}" name="contact" id="contact">
                                   </div>
-
-
-                              <div class="row">
-
-                              <div class="form-group mr-3">
-                                <label for="date">Date</label>
-                                <input type="date" class="form-control" placeholder="Enter date" name="date" id="date">
                               </div>
 
-                                <div class="form-group mr-5">
-                                    <label for="contact">Contacts</label>
-                                    <input type="text" class="form-control" placeholder="Enter the Contact" name="contact" id="contact">
-                                  </div>
-                              </div>
-
-                            <button type="submit" class="btn btn-primary">Add Action</button>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
                           </form>
                     </div>
                     </div>

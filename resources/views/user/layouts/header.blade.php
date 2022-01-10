@@ -28,19 +28,20 @@
                 <a class="nav-link" href="{{ url('Cars') }}">Cars</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url('Auctions') }}">Auctions</a>
+                <a class="nav-link" href="{{ url('Funds') }}">Special Financing/Funds</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('Jobs') }}">Advertised Jobs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('Services') }}">Service Linkage</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('Business') }}">Looking for a Business Partner</a>
+              </li>
+
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('Hotels') }}">Hotels</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url('Jobs') }}">Jobs</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url('Talents') }}">Talents <br> Detection</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url('Business') }}">Looking for a Business Partners</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('BarsResto') }}">Bars & Restaurants</a>
