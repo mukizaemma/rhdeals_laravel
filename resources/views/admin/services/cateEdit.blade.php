@@ -85,8 +85,22 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group mr-5">
-                                        <label for="link">Title Link</label>
-                                        <input type="text" class="form-control" value="{{ $cat-> link}}" name="link" id="link">
+                                        <label for="link">Change the Link</label>
+                                        <select class="form-control border-success" name="link" id="link">
+                                            <option value="{{ $cat-> link }}">{{ $cat-> link}}</option>
+                                            <option value="Houses">Houses</option>
+                                            <option value="Plots">Plots</option>
+                                            <option value="Tenders">Tenders</option>
+                                            <option value="Cars">Cars for Rent & Sale</option>
+                                            <option value="Services">Service Linkage</option>
+                                            <option value="Business">Business Linkage</option>
+                                            <option value="Funds">Funds</option>
+                                            <option value="Hotels">Hotels</option>
+                                            <option value="Jobs">Jobs</option>
+                                            <option value="BarsResto">BarsResto</option>
+                                            <option value="Others">Other Deals</option>
+
+                                        </select>
                                       </div>
                                 </div>
                             </div>
@@ -112,7 +126,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="desc">Description:</label>
-                                        <textarea class="form-control" rows="5" name="desc" id="desc"></textarea>
+                                        <textarea class="form-control" rows="5" name="desc" id="desc">{{ $cat->desc}}</textarea>
                                       </div>
                                 </div>
                             </div>

@@ -104,18 +104,18 @@
                                         <div class="form-group mr-5">
                                             <label for="link">Title Link</label>
                                             <select class="form-control border-success" name="link" id="link">
-                                                <option value="None"></option>
+                                                <option value=""></option>
                                                 <option value="Houses">Houses</option>
                                                 <option value="Plots">Plots</option>
                                                 <option value="Tenders">Tenders</option>
                                                 <option value="Cars">Cars for Rent & Sale</option>
-                                                <option value="Auctions">Auctions</option>
+                                                <option value="Services">Service Linkage</option>
+                                                <option value="Business">Business Linkage</option>
+                                                <option value="Funds">Funds</option>
                                                 <option value="Hotels">Hotels</option>
                                                 <option value="Jobs">Jobs</option>
-                                                <option value="Talents">Talents</option>
-                                                <option value="Business">Business</option>
                                                 <option value="BarsResto">BarsResto</option>
-                                                <option value="Business">Others</option>
+                                                <option value="Others">Other Deals</option>
 
                                             </select>
                                           </div>
