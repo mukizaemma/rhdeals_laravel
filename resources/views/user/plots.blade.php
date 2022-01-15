@@ -75,6 +75,7 @@ https://templatemo.com/tm-546-sixteen-clothing
             <tr>
               <th>#</th>
               <th>Image</th>
+              <th>Title</th>
               <th>Location</th>
               <th>Size/Sqm</th>
               <th>Price</th>
@@ -88,6 +89,7 @@ https://templatemo.com/tm-546-sixteen-clothing
               <td>{{ $plot->id }}</td>
               <td> <img class="card-img-top lazyestload" src="{{ asset('storage/images/houses/'.$plot->image) }}"
                 alt="{{ $plot->title }}" style="width: 120px;"></td>
+              <td>{{ $plot->pnum }}</td>
               <td>{{ $plot->location }}</td>
               <td>{{ $plot->size }}</td>
               <td>{{ $plot->price }}</td>

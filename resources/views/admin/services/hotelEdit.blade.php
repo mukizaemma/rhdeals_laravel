@@ -86,7 +86,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="projectinput1">Location</label>
-                                            <input type="text" id="projectinput1" class="form-control" value="{{ $hotel->hotel }}" name="location" required="">
+                                            <input type="text" id="projectinput1" class="form-control" value="{{ $hotel->hotel }}" name="location">
                                         </div>
                                     </div>
                                 </div>
@@ -110,7 +110,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="projectinput8">Detais/ Services</label>
-                                            <textarea id="projectinput8" rows="5" class="form-control" name="details" required="">{{ $hotel->hotel }}</textarea>
+                                            <textarea id="projectinput8" rows="5" class="form-control" name="details">{{ $hotel->hotel }}</textarea>
                                         </div>
                                     </div>
                                 </div>

@@ -77,7 +77,7 @@
                             @csrf
                             <div class="row ">
                                 <div class="form-group mr-5">
-                                    <label for="pnum">Plot No</label>
+                                    <label for="pnum">Title</label>
                                     <input type="text" class="form-control" value="{{ $plot->pnum }}" name="pnum" id="pnum">
                                   </div>
                                   <div class="form-group mr-3">

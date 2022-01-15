@@ -103,7 +103,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="projectinput1">Location</label>
-                                                <input type="text" id="projectinput1" class="form-control" placeholder="Hotel Location" name="location" required="">
+                                                <input type="text" id="projectinput1" class="form-control" placeholder="Hotel Location" name="location">
                                             </div>
                                         </div>
                                     </div>
@@ -127,7 +127,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="projectinput8">Detais/ Services</label>
-                                                <textarea id="projectinput8" rows="5" class="form-control" name="details" placeholder="About the hotel Services" required=""></textarea>
+                                                <textarea id="projectinput8" rows="5" class="form-control" name="details" placeholder="About the hotel Services"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-6">

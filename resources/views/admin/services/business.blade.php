@@ -104,7 +104,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="projectinput1">Location</label>
-                                            <input type="text" id="projectinput1" class="form-control" name="location" required="">
+                                            <input type="text" id="projectinput1" class="form-control" name="location">
                                         </div>
                                     </div>
                                 </div>

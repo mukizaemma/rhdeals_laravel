@@ -110,7 +110,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="projectinput8">Detais/ Services</label>
-                                            <textarea id="projectinput8" rows="5" class="form-control" name="details" required="">{{ $bar->details }}</textarea>
+                                            <textarea id="projectinput8" rows="5" class="form-control" name="details">{{ $bar->details }}</textarea>
                                         </div>
                                     </div>
                                 </div>
