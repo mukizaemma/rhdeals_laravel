@@ -91,7 +91,7 @@
                             @foreach ($plots as $plot)
                             <tr>
                               <td>{{ $plot->id }}</td>
-                              <td><img src="{{ asset('/storage/images/houses/').$plot->image }}" alt="{{ $plot->title }}"></td>
+                              <td><img src="{{ asset('/storage/images/plots/').$plot->image }}" alt="{{ $plot->title }}"></td>
                               <td>{{ $plot->location }}</td>
                               <td>{{ $plot->size }}</td>
                               <td>{{ $plot->price }}</td>

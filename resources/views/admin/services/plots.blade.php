@@ -74,7 +74,7 @@
                             <div class="row ">
                                 <div class="form-group mr-5">
                                     <label for="pnum">Title</label>
-                                    <input type="text" class="form-control" placeholder="Enter Plot Number" name="pnum" id="pnum">
+                                    <input type="text" class="form-control" placeholder="Enter the advert title" name="pnum" id="pnum">
                                   </div>
                                   <div class="form-group mr-3">
                                     <label for="location">Location</label>
@@ -82,7 +82,7 @@
                                   </div>
                                   <div class="form-group">
                                     <label for="price">Price</label>
-                                    <input type="number" class="form-control" placeholder="Enter the Price" name="price" id="price">
+                                    <input type="text" class="form-control" placeholder="Enter the Price" name="price" id="price">
                                   </div>
                             </div>
                             <div class="form-group">

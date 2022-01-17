@@ -86,7 +86,7 @@
                                   </div>
                                   <div class="form-group">
                                     <label for="price">Price</label>
-                                    <input type="number" class="form-control" value="{{ $plot->price }}" name="price" id="price">
+                                    <input type="text" class="form-control" value="{{ $plot->price }}" name="price" id="price">
                                   </div>
                             </div>
                             <div class="row">
