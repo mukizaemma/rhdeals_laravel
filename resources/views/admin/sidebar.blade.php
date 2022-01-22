@@ -22,7 +22,7 @@
                 </ul>
             </div>
         </li> --}}
-
+{{--
         <li class="nav-item ">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
                 aria-controls="ui-basic">
@@ -39,7 +39,7 @@
 
                 </ul>
             </div>
-        </li>
+        </li> --}}
 
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false"
@@ -124,7 +124,12 @@
             </a>
         </li>
 
-
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url('companies') }}">
+                <i class="icon-contract menu-icon"></i>
+                <span class="menu-title">Useful Companies</span>
+            </a>
+        </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ url('others') }}">
                 <i class="icon-contract menu-icon"></i>

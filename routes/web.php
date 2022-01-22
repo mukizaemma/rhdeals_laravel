@@ -18,6 +18,7 @@ use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\OthersController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\FundsController;
+use App\Http\Controllers\CompaniesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -155,3 +156,9 @@ Route::get('/about', [AboutController::class, 'index']);
 Route::post('/saveAbout', [AboutController::class, 'saveAbout']);
 Route::get('/editAbout/{id}', [AboutController::class, 'editAbout']);
 Route::post('/updateAbout/{id}', [AboutController::class, 'updateAbout']);
+
+Route::get('/companies', [CompaniesController::class, 'index']);
+Route::get('/Companies', [CompaniesController::class, 'show']);
+Route::post('/saveCompany', [CompaniesController::class, 'store']);
+Route::get('/editcompany/{id}', [CompaniesController::class, 'edit']);
+Route::post('/updateCompany/{id}', [CompaniesController::class, 'update']);

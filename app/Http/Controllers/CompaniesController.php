@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use Illuminate\Http\Request;
-use App\Models\Job;
-use BaconQrCode\Renderer\RendererStyle\Fill;
 use Illuminate\Support\Facades\File;
 
-class JobsCotroller extends Controller
+class CompaniesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,14 +15,8 @@ class JobsCotroller extends Controller
      */
     public function index()
     {
-        $jobs = Job::latest()->paginate(20);
-        return view('admin.services.jobs', compact('jobs'));
-    }
-
-    public function josVIew()
-    {
-        $data = Job::latest()->paginate(20);
-        return view('user.jobs', compact('data'));
+        $company = Company::latest()->paginate(10);
+        return view('admin.services.companies', compact('company'));
     }
 
     /**
@@ -44,24 +37,25 @@ class JobsCotroller extends Controller
      */
     public function store(Request $request)
     {
-        $data = new Job;
-        $data->institution = $request->institution;
-        $data->title = $request->title;
-        $data->deadline = $request->deadline;
-        $data->details = $request->details;
+        $data = new Company();
+        $data->name = $request->name;
+        $data->activities = $request->activities;
+        $data->contact = $request->contact;
+        $data->email = $request->email;
 
-        // Uploading image
+        // Save an image
+
         if ($request->hasFile('image')) {
-            $dir = 'public/images/jobs';
-            $path = $request->file('image')->store($dir);
-            $fileName = str_replace($dir, '', $path);
 
+            $dir = 'public/images/companies/';
+            $path = $request->file('image')->store($dir);
+
+            $fileName = str_replace($dir, '', $path);
             $data->image = $fileName;
         }
 
         $data->save();
-
-        return redirect()->back()->with('success', 'Job has added successfully');
+        return redirect()->back()->with('success', 'Company has been added successfully!');
     }
 
     /**
@@ -70,9 +64,10 @@ class JobsCotroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $company = Company::latest()->paginate(20);
+        return view('user.companies', compact('company'));
     }
 
     /**
@@ -83,8 +78,8 @@ class JobsCotroller extends Controller
      */
     public function edit($id)
     {
-        $job = Job::find($id);
-        return view('admin.services.jobEdit', compact('job'));
+        $company = Company::find($id);
+        return view('admin.services.companyEdit', compact('company'));
     }
 
     /**
@@ -96,16 +91,16 @@ class JobsCotroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = Job::find($id);
-        $data->institution = $request->input('institution');
-        $data->title = $request->input('title');
-        $data->deadline = $request->input('deadline');
-        $data->details = $request->input('details');
+        $data = Company::find($id);
+        $data->name = $request->input('name');
+        $data->contact = $request->input('contact');
+        $data->email = $request->input('email');
+        $data->activities = $request->input('activities');
 
         // update image
 
         if (request()->hasFile('image') && request('image') != '') {
-            $dir = 'public/images/jobs';
+            $dir = 'public/images/companies';
 
             if (File::exists($dir)) {
                 unlink($dir);
@@ -117,7 +112,7 @@ class JobsCotroller extends Controller
         }
         $data->update();
 
-        return redirect('jobs')->with('success', 'Job has been updated');
+        return redirect('companies')->with('success', 'Company has been updated');
     }
 
     /**
@@ -128,9 +123,8 @@ class JobsCotroller extends Controller
      */
     public function destroy($id)
     {
-        $data = Job::find($id);
-        $data->delete();
-
-        return redirect()->back()->with('success', 'JOb has been deleted ');
+        $data = Company::find($id);
+        $data->delete($id);
+        return redirect()->back()->with('success', 'Company has been deleted');
     }
 }

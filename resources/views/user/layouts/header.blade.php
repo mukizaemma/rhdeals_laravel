@@ -21,9 +21,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('Plots') }}">Plots</a>
               </li>
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a class="nav-link" href="{{ url('Tenders') }}">Tenders</a>
-              </li>
+              </li> --}}
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('Cars') }}">Cars</a>
               </li>
@@ -38,6 +38,9 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('Business') }}">Looking for a Business Partner</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('Companies') }}">Useful Companies</a>
               </li>
 
               <li class="nav-item">

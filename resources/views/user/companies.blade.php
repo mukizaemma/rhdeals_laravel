@@ -51,7 +51,7 @@ https://templatemo.com/tm-546-sixteen-clothing
         <div class="container">
           <div class="breadcrumb-holder">
             <div>
-              <h1 class="breadcrumb-title">Cars for Rent & Sale</h1>
+              <h1 class="breadcrumb-title">Usefull Companies</h1>
               <ul class="breadcrumb breadcrumb-transparent">
                 <li class="breadcrumb-item">
                   <a class="text-white" href="index.html">Home</a>
@@ -66,30 +66,30 @@ https://templatemo.com/tm-546-sixteen-clothing
       </section>
 
     <div class="container mt-25">
-        <h2>List of Recent Published Tenders</h2>
-        <p class="mb-25">Don't Hesitate to call the house owner if you would like to</p>
+        <h2>List of usefull Companies</h2>
+        {{-- <p class="mb-25">Don't Hesitate to call the house owner if you would like to</p> --}}
 
         <table class="table table-striped">
 
           <thead>
             <tr>
-              <th>#</th>
-              <th>Institution</th>
-              <th>Title</th>
-              <th>Details</th>
-              <th>Deadline</th>
-              <th>Contact</th>
+              {{-- <th>#</th> --}}
+              <th>Company Logo</th>
+              <th>Company Name</th>
+              <th>Activites</th>
+              <th>Tel</th>
+              <th>Email</th>
             </tr>
           </thead>
           <tbody>
-            @foreach($data as $tender)
+            @foreach($company as $company)
             <tr>
-              <td>{{ $tender->id }}</td>
-              <td>{{ $tender->institution }}</td>
-              <td>{{ $tender->title }}</td>
-              <td>{{ $tender->details }}</td>
-              <td>{{ $tender->deadline }}</td>
-              <td>{{ $tender->contact }}</td>
+              {{-- <td>{{ $company->id }}</td> --}}
+              <td><img src="{{ asset('storage/images/companies/').$company->image }}" alt="" width="120px"></td>
+              <td>{{ $company->name }}</td>
+              <td>{{ $company->activities }}</td>
+              <td>{{ $company->contact }}</td>
+              <td>{{ $company->email }}</td>
 
             </tr>
             @endforeach
