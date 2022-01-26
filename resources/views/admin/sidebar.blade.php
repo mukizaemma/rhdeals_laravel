@@ -132,7 +132,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="{{ url('opportunity') }}">
+            <a class="nav-link" href="{{ url('opportunities') }}">
                 <i class="icon-contract menu-icon"></i>
                 <span class="menu-title">Opportunities In Districts </span>
             </a>
