@@ -3,7 +3,7 @@
       <div class="container">
         {{-- <a class="navbar-brand" href="{{ url('/') }}"><h2>Rwanda <em>Hot Deals</em></h2></a> --}}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>Click Here
+          <span class="navbar-toggler-icon"></span>Click Here to View Menu
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
@@ -28,6 +28,13 @@
                 <a class="nav-link" href="{{ url('Cars') }}">Cars</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="{{ url('Hotels') }}">Hotels</a>
+              </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('Others') }}">Other Deals</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="{{ url('Funds') }}">Special Funds & Grants</a>
               </li>
               <li class="nav-item">
@@ -37,7 +44,7 @@
                 <a class="nav-link" href="{{ url('Services') }}">Service Linkage</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url('Business') }}">Looking for a Business Partner</a>
+                <a class="nav-link" href="{{ url('Business') }}">Get a Buz Partner</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('Companies') }}">Useful Companies</a>
@@ -45,14 +52,6 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('BarsResto') }}">Opportunities in Districts</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url('Hotels') }}">Hotels</a>
-              </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('Others') }}">Other Deals</a>
-              </li>
-
 
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/Contactus') }}">Contacts</a>
