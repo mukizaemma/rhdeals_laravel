@@ -66,7 +66,7 @@ https://templatemo.com/tm-546-sixteen-clothing
       </section>
 
     <div class="container mt-25">
-        <h2>Special Finacing / Funds</h2>
+        <h2>Special Funds and Grants</h2>
         <p class="mb-25">Don't Hesitate to call the house owner if you would like to</p>
 
         <table class="table table-striped">
