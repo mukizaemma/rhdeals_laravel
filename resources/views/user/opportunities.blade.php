@@ -52,10 +52,10 @@ https://templatemo.com/tm-546-sixteen-clothing
         <div class="container">
           <div class="breadcrumb-holder">
             <div>
-              <h1 class="breadcrumb-title">Cars for Rent & Sale</h1>
+              <h1 class="breadcrumb-title">Opportunities in Districts</h1>
               <ul class="breadcrumb breadcrumb-transparent">
                 <li class="breadcrumb-item">
-                  <a class="text-white" href="index.html">Home</a>
+                  <a class="text-white" href="index.html">Home</a>5
                 </li>
                 <li class="breadcrumb-item text-white active" aria-current="page">
                   Contact Us
@@ -67,7 +67,7 @@ https://templatemo.com/tm-546-sixteen-clothing
       </section>
 
     <div class="container mt-25">
-        <h2>List of Recent Published Bars & Restaurants</h2>
+        <h2>List of Recent Opportunities in Districts</h2>
         {{-- <p class="mb-25">Don't Hesitate to call the house owner if you would like to</p> --}}
 
         <table class="table table-striped">
@@ -75,24 +75,20 @@ https://templatemo.com/tm-546-sixteen-clothing
           <thead>
             <tr>
                 <th>#</th>
-                <th>Picture</th>
-                <th>Bar/Resto Name</th>
-                <th>Location</th>
-                <th style="width: 50px;"!important>Services Description</th>
+                <th>District</th>
+                <th style="width: 50px;"!important>Opportunity Description</th>
                 <th >Pone</th>
                 <th >Email</th>
               </tr>
             </thead>
             <tbody>
-                @foreach ($data as $bar)
+                @foreach ($data as $opt)
               <tr>
-                <td>{{ $bar->id }}</td>
-                <td><img src="{{ asset('storage/images/barsResto/').$bar->image }}" alt="" style="width: 120px;"></td>
-                <td>{{ $bar->name }}</td>
-                <td>{{ $bar->location }}</td>
-                <td style="width: 300px;">{{ $bar->details }}</td>
-                <td>{{ $bar->phone }}</td>
-                <td>{{ $bar->email }}</td>
+                <td>{{ $opt->id }}</td>
+                <td>{{ $opt->district }}</td>
+                <td style="width: 300px;">{{ $opt->details }}</td>
+                <td>{{ $opt->phone }}</td>
+                <td>{{ $opt->email }}</td>
 
             </tr>
             @endforeach

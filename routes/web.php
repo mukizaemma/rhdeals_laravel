@@ -13,7 +13,7 @@ use App\Http\Controllers\JobsCotroller;
 use App\Http\Controllers\TalentsController;
 use App\Http\Controllers\HotelsController;
 use App\Http\Controllers\BusinessController;
-use App\Http\Controllers\BarsController;
+use App\Http\Controllers\OpportunitiesController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\OthersController;
 use App\Http\Controllers\AboutController;
@@ -125,12 +125,12 @@ Route::get('/delete/{id}', [HotelsController::class, 'destroy']);
 Route::get('/editHotel/{id}', [HotelsController::class, 'edit']);
 Route::post('/updateHotel/{id}', [HotelsController::class, 'update']);
 
-Route::get('/BarsResto', [BarsController::class, 'index']);
-Route::get('/barResto', [BarsController::class, 'create']);
-Route::post('/saveBar', [BarsController::class, 'store']);
-Route::get('/delete/{id}', [BarsController::class, 'destroy']);
-Route::get('/editBar/{id}', [BarsController::class, 'edit']);
-Route::post('/updateBar/{id}', [BarsController::class, 'update']);
+Route::get('/Opportunities', [OpportunitiesController::class, 'index']);
+Route::get('/opportunities', [OpportunitiesController::class, 'create']);
+Route::post('/saveOport', [OpportunitiesController::class, 'store']);
+Route::get('/delete/{id}', [OpportunitiesController::class, 'destroy']);
+Route::get('/editOp/{id}', [OpportunitiesController::class, 'edit']);
+Route::post('/updateOport/{id}', [OpportunitiesController::class, 'update']);
 
 Route::post('/sendMessage', [MessagesController::class, 'store']);
 Route::get('/Contactus', [MessagesController::class, 'index']);

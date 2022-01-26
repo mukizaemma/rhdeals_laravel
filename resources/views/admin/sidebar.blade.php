@@ -100,7 +100,7 @@
                 </ul>
             </div>
         </li>
-
+{{--
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false"
                 aria-controls="icons">
@@ -115,12 +115,26 @@
 
                 </ul>
             </div>
-        </li>
+        </li> --}}
 
         <li class="nav-item">
             <a class="nav-link" href="{{ url('cars') }}">
                 <i class="icon-contract menu-icon"></i>
                 <span class="menu-title">Cars</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url('hotels') }}">
+                <i class="icon-contract menu-icon"></i>
+                <span class="menu-title">Hotels</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url('opportunity') }}">
+                <i class="icon-contract menu-icon"></i>
+                <span class="menu-title">Opportunities In Districts </span>
             </a>
         </li>
 

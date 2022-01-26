@@ -73,67 +73,90 @@
                         </div>
                         @endif
 
-                        <form class="form" action="{{ url('updateBar', $bar->id) }}" method="POST" enctype="multipart/form-data">
+                        <form class="form" action="{{ url('updateOport', $data->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-body">
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="projectinput1">Restaurant Name</label>
-                                            <input type="text" id="projectinput1" class="form-control" value="{{ $bar->name }}" name="name" required="">
-                                        </div>
+                                    <div class="form-group form-group-icon col-md-3">
+                                      <label for="first-name">Province</label>
+                                      <select class="form-control border-success" name="province" id="province" >
+                                          <option value=""></option>
+                                          @foreach (App\Models\Province::orderBy('name')->get() as $province )
+                                        <option value="{{ $province->name }}">
+                                        {{ $province->name }}</option>
+                                          @endforeach
+                                    </select>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="projectinput1">Location</label>
-                                            <input type="text" id="projectinput1" class="form-control" value="{{ $bar->location }}" name="location" required="">
-                                        </div>
+                                    <div class="form-group form-group-icon col-md-3">
+                                        <label for="first-name">District</label>
+                                        <select class="form-control border-success" name="district" id="district">
+                                          <option value="">{{ $districts->name }}</option>
+                                          @foreach (App\Models\District::orderBy('name')->get() as $district )
+                                          <option value="{{ $district->name }}">
+                                          {{ $district->name }}</option>
+                                            @endforeach
+                                      </select>
+                                      </div>
+
+                                    {{-- <div class="form-group form-group-icon col-md-3">
+                                      <label for="last-name">Sector</label>
+                                      <input type="text" class="form-control border-danger rounded-sm" name="sector" id="sector" placeholder="type your sector">
+                                      <select class="form-control border-success" name="sector" id="sector">
+                                        <option value=""></option>
+                                    </select>
                                     </div>
-                                </div>
+                                    <div class="form-group form-group-icon col-md-3">
+                                        <label for="last-name">Cell</label>
+                                        <input type="text" class="form-control border-danger rounded-sm" name="cell" id="cell" placeholder="type your cell">
+                                      </div> --}}
+                                  </div>
 
                                 <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="projectinput1">Phone Number</label>
-                                                <input type="text" id="projectinput1" class="form-control" value="{{ $bar->phone }}" name="phone">
+                                                <input type="text" id="projectinput1" class="form-control" placeholder="Phone" name="phone" value="{{ $data->phone }}">
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="projectinput1">Email</label>
-                                                <input type="email" id="projectinput1" class="form-control" value="{{ $bar->email }}" name="email">
+                                                <input type="email" id="projectinput1" class="form-control" placeholder="Email" name="email" value="{{ $data->email }}">
                                             </div>
                                         </div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-12">
                                         <div class="form-group">
                                             <label for="projectinput8">Detais/ Services</label>
-                                            <textarea id="projectinput8" rows="5" class="form-control" name="details">{{ $bar->details }}</textarea>
+                                            <textarea id="projectinput8" rows="5" class="form-control" name="details">{{ $data->details }}</textarea>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <label>Featured image</label>
+                                            <label>Teatured Logo</label>
                                             <label id="projectinput7" class="file center-block">
-                                                <img src="{{ asset('storage/images/barsResto/').$bar->image }}" width="120px">
+                                                <img src="{{ asset('storage/images/oppotunities/').$data->image }}" alt="">
                                                 <span class="file-custom"></span>
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <label>Change the image</label>
+                                            <label>Change the Logo</label>
                                             <label id="projectinput7" class="file center-block">
                                                 <input type="file" id="image" name="image" >
                                                 <span class="file-custom"></span>
                                             </label>
                                         </div>
                                     </div>
-                                 </div>
+                                </div>
+
 
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-primary">

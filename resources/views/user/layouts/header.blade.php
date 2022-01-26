@@ -44,13 +44,13 @@
                 <a class="nav-link" href="{{ url('Services') }}">Service Linkage</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url('Business') }}">Get a Buz Partner</a>
+                <a class="nav-link" href="{{ url('Business') }}">Get a Biz Partner</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('Companies') }}">Useful Companies</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url('BarsResto') }}">Opportunities in Districts</a>
+                <a class="nav-link" href="{{ url('Opportunities') }}">Opportunities in Districts</a>
               </li>
 
             <li class="nav-item">

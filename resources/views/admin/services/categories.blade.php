@@ -110,11 +110,12 @@
                                                 <option value="Tenders">Tenders</option>
                                                 <option value="Cars">Cars for Rent & Sale</option>
                                                 <option value="Services">Service Linkage</option>
-                                                <option value="Business">Business Linkage</option>
+                                                <option value="Business">Business Partner</option>
                                                 <option value="Funds">Funds</option>
-                                                <option value="Hotels">Hotels</option>
+                                                <option value="Hotels">Hotels & Resto</option>
                                                 <option value="Jobs">Jobs</option>
-                                                <option value="BarsResto">BarsResto</option>
+                                                <option value="Companies">Useful Companies</option>
+                                                <option value="Opportunities">Oportunities in Districts</option>
                                                 <option value="Others">Other Deals</option>
 
                                             </select>

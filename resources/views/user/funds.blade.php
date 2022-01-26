@@ -42,7 +42,7 @@ https://templatemo.com/tm-546-sixteen-clothing
 
     <!-- Header -->
     @include('user.layouts.header')
-
+5
     <!-- Page Content -->
     <!-- Banner Starts Here -->
     {{-- @include('user.layouts.slideshow') --}}

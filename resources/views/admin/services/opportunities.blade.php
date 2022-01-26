@@ -74,7 +74,7 @@
 
                     <!-- Button to Open the Modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                      Add New Bar/restaurant
+                      Add New Opportunity
                     </button>
 
                     <!-- The Modal -->
@@ -84,66 +84,88 @@
 
                           <!-- Modal Header -->
                           <div class="modal-header">
-                            <h4 class="modal-title">Adding a New Bar or Restaurant</h4>
+                            <h4 class="modal-title">Adding a New Opportunity</h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                           </div>
 
                           <!-- Modal body -->
                           <div class="modal-body">
-                            <form class="form" action="{{ url('saveBar') }}" method="POST" enctype="multipart/form-data">
+                            <form class="form" action="{{ url('saveOport') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-body">
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="projectinput1">Restaurant Name</label>
-                                                <input type="text" id="projectinput1" class="form-control" placeholder="Restaurant Name" name="name" required="">
-                                            </div>
+                                        <div class="form-group form-group-icon col-md-3">
+                                          <label for="first-name">Province</label>
+                                          <select class="form-control border-success" name="province" id="province">
+                                              <option value=""></option>
+                                              @foreach ($provinces as $province )
+                                            <option value="{{ $province->name }}">
+                                            {{ $province->name }}</option>
+                                              @endforeach
+                                        </select>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="projectinput1">Location</label>
-                                                <input type="text" id="projectinput1" class="form-control" placeholder="Restaurant Location" name="location">
-                                            </div>
+                                        <div class="form-group form-group-icon col-md-3">
+                                            <label for="first-name">District</label>
+                                            <select class="form-control border-success" name="district" id="district">
+                                              <option value=""></option>
+                                              @foreach (App\Models\District::orderBy('name')->get() as $district )
+                                              <option value="{{ $district->name }}">
+                                              {{ $district->name }}</option>
+                                                @endforeach
+                                          </select>
+                                          </div>
+
+                                        {{-- <div class="form-group form-group-icon col-md-3">
+                                          <label for="last-name">Sector</label>
+                                          <input type="text" class="form-control border-danger rounded-sm" name="sector" id="sector" placeholder="type your sector">
+                                          <select class="form-control border-success" name="sector" id="sector">
+                                            <option value=""></option>
+                                        </select>
                                         </div>
-                                    </div>
+                                        <div class="form-group form-group-icon col-md-3">
+                                            <label for="last-name">Cell</label>
+                                            <input type="text" class="form-control border-danger rounded-sm" name="cell" id="cell" placeholder="type your cell">
+                                          </div> --}}
+                                      </div>
 
                                     <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="projectinput1">Phone Number</label>
-                                                    <input type="text" id="projectinput1" class="form-control" placeholder="phone" name="phone">
+                                                    <input type="text" id="projectinput1" class="form-control" placeholder="Phone" name="phone">
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="projectinput1">Email</label>
                                                     <input type="email" id="projectinput1" class="form-control" placeholder="Email" name="email">
                                                 </div>
                                             </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Select the Logo</label>
+                                                    <label id="projectinput7" class="file center-block">
+                                                        <input type="file" id="image" name="image" >
+                                                        <span class="file-custom"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-12">
                                             <div class="form-group">
                                                 <label for="projectinput8">Detais/ Services</label>
                                                 <textarea id="projectinput8" rows="5" class="form-control" name="details" placeholder="About the restaurant Services"></textarea>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Select the Restaurant picture</label>
-                                                <label id="projectinput7" class="file center-block">
-                                                    <input type="file" id="image" name="image" >
-                                                    <span class="file-custom"></span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                     </div>
+
+                                    </div>
+
 
                                 <div class="form-actions">
                                     <button type="submit" class="btn btn-primary">
-                                        <i class="la la-check-square-o"></i> Add Restaurant
+                                        <i class="la la-check-square-o"></i> Add New
                                     </button>
 
                                 </div>
@@ -162,35 +184,32 @@
                   </div>
 
                   <div class="container mt-10">
-                    <h2>Recent Published Bars/ Restaurants</h2>
+                    <h2>Recent Published Opportunities in Districts</h2>
                     <table class="table table-hover table-responsive">
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Picture</th>
-                          <th>Bar/Resto Name</th>
-                          <th>Location</th>
-                          <th style="width: 50px;"!important>Services Description</th>
+                          <th>District</th>
+                          <th style="width: 50px;"!important>Opportunity Description</th>
                           <th >Pone</th>
                           <th >Email</th>
                           <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                          @foreach ($bars as $bar)
+                          @foreach ($opportunities as $opt)
                         <tr>
-                          <td>{{ $bar->id }}</td>
-                          <td><img src="{{ asset('storage/images/barsResto/').$bar->image }}" alt=""></td>
-                          <td>{{ $bar->name }}</td>
-                          <td>{{ $bar->location }}</td>
-                          <td>{{ $bar->details }}</td>
-                          <td>{{ $bar->phone }}</td>
-                          <td>{{ $bar->email }}</td>
+                          <td>{{ $opt->id }}</td>
+                          {{-- <td><img src="{{ asset('storage/images/oppotunities/').$opt->image }}" alt=""></td> --}}
+                          <td>{{ $opt->district }}</td>
+                          <td>{{ $opt->details }}</td>
+                          <td>{{ $opt->phone }}</td>
+                          <td>{{ $opt->email }}</td>
 
                           <td>
                               <div class="btn-group">
-                                <a class="btn btn-primary" href="{{ url('editBar', $bar->id) }}">Edit</a>
-                                <a href="{{ url('delete',$bar->id) }}" onclick="return confirm('Are you sure to delete this?')" class="btn btn-danger">Delete</a>
+                                <button class="btn btn-primary" href="{{ url('editOp', $opt->id) }}">Edit</button>
+                                <button href="{{ url('delete',$opt->id) }}" onclick="return confirm('Are you sure to delete this?')" class="btn btn-danger">Delete</button>
                               </div>
                           </td>
                         </tr>
