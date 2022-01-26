@@ -61,8 +61,8 @@ https://templatemo.com/tm-546-sixteen-clothing
           <div class="col-md-6">
             <div class="left-content">
               <p class="font-size-20">We are dedicated to providing the best services
-                through helping you sell or buy the best properties at the affordable prices. We also help detecting and promoting talents</p>
-               <ul class="featured-list">
+                through helping you sell or buy the best properties at the affordable prices. We also help you to detect diverse business opportunities</p>
+               {{-- <ul class="featured-list">
                 <li><a href="#">Real Estate</a></li>
                 <li><a href="#">Teners</a></li>
                 <li><a href="#">Auctions</a></li>
@@ -71,7 +71,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <li><a href="#">Hotels  & Restaurants</a></li>
 
               <a href="#" class="filled-button">More</a>
-              </ul>
+              </ul> --}}
             </div>
           </div>
           <div class="col-md-6">
@@ -84,7 +84,7 @@ https://templatemo.com/tm-546-sixteen-clothing
     </div>
 
     {{-- @include('user.layouts.categories') --}}
-    <section class="py-8 py-md-10">
+    <section class="py-8 py-md-10 justify-content-center">
         <div class="container">
             <div class="section-title justify-content-center mb-4 mb-md-8">
                 <span class="shape shape-left bg-info"></span>
@@ -94,15 +94,15 @@ https://templatemo.com/tm-546-sixteen-clothing
           <div class="row">
               @foreach($categories as $cat)
 
-            <div class="col-sm-4 col-lg-3 col-xs-12">
+            <div class="col-sm-4 col-lg-4 col-xs-12">
               <div class="card">
                 <a href="{{ $cat->link }}" class="position-relative">
                   <img class="card-img-top" src="{{ asset('storage/images/categories/').$cat->image }}" alt="Card image" style="width: 255px; height: 220px;">
                 </a>
                 <div class="card-body border-top-5 px-3 rounded-bottom border-primary">
-                  <h3 class="card-title">
+                  <h6 class="card-title">
                     <a class="text-primary text-capitalize d-block text-truncate" href="{{ $cat->link }}">{{ $cat->title }}</a>
-                  </h3>
+                  </h6>
 
                   <p>  </p>
                   <div class="d-block">

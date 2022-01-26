@@ -1,9 +1,9 @@
 <header class="">
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg" style="padding-bottom: 50px;">
       <div class="container">
         {{-- <a class="navbar-brand" href="{{ url('/') }}"><h2>Rwanda <em>Hot Deals</em></h2></a> --}}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>Click Here
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
@@ -28,7 +28,7 @@
                 <a class="nav-link" href="{{ url('Cars') }}">Cars</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url('Funds') }}">Special Financing/Funds</a>
+                <a class="nav-link" href="{{ url('Funds') }}">Special Funds & Grants</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('Jobs') }}">Advertised Jobs</a>
@@ -42,13 +42,13 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('Companies') }}">Useful Companies</a>
               </li>
-
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('BarsResto') }}">Opportunities in Districts</a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('Hotels') }}">Hotels</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url('BarsResto') }}">Bars & Restaurants</a>
-              </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('Others') }}">Other Deals</a>
               </li>

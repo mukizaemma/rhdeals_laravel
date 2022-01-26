@@ -74,7 +74,7 @@
 
                     <!-- Button to Open the Modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                      Add New Service
+                      Add New Car
                     </button>
 
                     <!-- The Modal -->
