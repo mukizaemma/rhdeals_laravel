@@ -83,9 +83,11 @@ https://templatemo.com/tm-546-sixteen-clothing
               </tr>
             </thead>
             <tbody>
+                <?php $i=0 ?>
                 @foreach ($others as $other)
+                <?php $i++ ?>
               <tr>
-                <td>{{ $other->id }}</td>
+                <td>{{ $i }}</td>
                 <td><img src="{{ asset('storage/images/others/').$other->image }}" alt="" style="width: 120px;"></td>
                 <td>{{ $other->title }}</td>
                 <td style="width: 300px;">{{ $other->details }}</td>
@@ -98,7 +100,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           </tbody>
 
         </table>
-
+        <span>{{ $others->links() }}</span>
       </div>
 
 

@@ -177,11 +177,12 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <?php $i=0 ?>
                           @foreach ($hotels as $hotel)
-
+                          <?php $i++ ?>
 
                         <tr>
-                          <td>{{ $hotel->id }}</td>
+                          <td>{{$i}}</td>
                           <td><img src="{{ asset('storage/images/hotels/').$hotel->image }}" alt=""></td>
                           <td>{{ $hotel->hotel }}</td>
                           <td>{{ $hotel->location }}</td>

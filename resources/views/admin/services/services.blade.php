@@ -178,9 +178,11 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <?php $i=0 ?>
                           @foreach ($services as $serv)
+                          <?php $i++ ?>
                         <tr>
-                          <td>{{ $serv->id }}</td>
+                          <td>{{ $i }}</td>
                           <td><img src="{{ asset('storage/images/services/').$serv->image }}" alt=""></td>
                           <td>{{ $serv->title }}</td>
                           <td>{{ $serv->details }}</td>

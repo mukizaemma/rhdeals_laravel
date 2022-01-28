@@ -82,9 +82,11 @@ https://templatemo.com/tm-546-sixteen-clothing
               </tr>
             </thead>
             <tbody>
+                <?php $i=0 ?>
                 @foreach ($data as $opt)
+                <?php $i++ ?>
               <tr>
-                <td>{{ $opt->id }}</td>
+                <td>{{ $i }}</td>
                 <td>{{ $opt->district }}</td>
                 <td style="width: 300px;">{{ $opt->details }}</td>
                 <td>{{ $opt->phone }}</td>
@@ -95,7 +97,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           </tbody>
 
         </table>
-
+        <span>{{ $data->links() }}</span>
       </div>
 
 

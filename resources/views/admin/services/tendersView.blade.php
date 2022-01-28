@@ -91,9 +91,11 @@
                                 </tr>
                               </thead>
                               <tbody>
+                                <?php $i=0 ?>
                                 @foreach ($tenders as $tender)
+                                <?php $i++ ?>
                                 <tr>
-                                  <td>{{ $tender->id }}</td>
+                                  <td>{{ $i }}</td>
                                   <td><img src="{{ asset('storage/images/tenders/').$tender->image }}" alt=""></td>
                                   <td>{{ $tender->institution }}</td>
                                   <td>{{ $tender->title }}</td>

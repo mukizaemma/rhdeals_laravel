@@ -178,9 +178,11 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <?php $i=0 ?>
                           @foreach ($others as $other)
+                          <?php $i++ ?>
                         <tr>
-                          <td>{{ $other->id }}</td>
+                          <td>{{ $i }}</td>
                           <td><img src="{{ asset('storage/images/others/').$other->image }}" alt=""></td>
                           <td>{{ $other->title }}</td>
                           <td>{{ $other->details }}</td>
@@ -198,6 +200,8 @@
                         @endforeach
                       </tbody>
                     </table>
+
+                    <span>{{ $others->links() }}</span>
                   </div>
 
 

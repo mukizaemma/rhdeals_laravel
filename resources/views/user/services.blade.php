@@ -82,9 +82,11 @@ https://templatemo.com/tm-546-sixteen-clothing
             </tr>
           </thead>
           <tbody>
+            <?php $i=0 ?>
             @foreach ($services as $serv)
+            <?php $i++ ?>
             <tr>
-              <td>{{ $serv->id }}</td>
+              <td>{{ $i }}</td>
               <td> <img class="card-img-top lazyestload" src="{{ asset('storage/images/services/'.$serv->image) }}"
                 alt="{{ $serv->title }}" style="width: 120px;"></td>
               <td>{{ $serv->title }}</td>
@@ -97,7 +99,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           </tbody>
 
         </table>
-
+        <span>{{ $services->links() }}</span>
       </div>
 
 

@@ -66,8 +66,8 @@ class CompaniesController extends Controller
      */
     public function show()
     {
-        $company = Company::latest()->paginate(20);
-        return view('user.companies', compact('company'));
+        $companies = Company::latest()->paginate(20);
+        return view('user.companies', compact('companies'));
     }
 
     /**

@@ -168,11 +168,12 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <?php $i=0 ?>
                           @foreach ($company as $comp)
-
+                          <?php $i++ ?>
 
                         <tr>
-                          <td>{{ $comp->id }}</td>
+                          <td>{{ $i }}</td>
                           <td><img src="{{ asset('storage/images/companies/').$comp->image }}" alt=""></td>
                           <td>{{ $comp->name }}</td>
                           <td>{{ $comp->activities }}</td>

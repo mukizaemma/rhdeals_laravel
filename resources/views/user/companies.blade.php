@@ -82,9 +82,12 @@ https://templatemo.com/tm-546-sixteen-clothing
             </tr>
           </thead>
           <tbody>
-            @foreach($company as $company)
+            <?php $i = 0 ?>
+            @foreach($companies as $company)
+
+            <?php $i++ ?>
             <tr>
-              {{-- <td>{{ $company->id }}</td> --}}
+              <td>{{ $i}}</td>
               <td><img src="{{ asset('storage/images/companies/').$company->image }}" alt="" width="120px"></td>
               <td>{{ $company->name }}</td>
               <td>{{ $company->activities }}</td>
@@ -96,7 +99,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           </tbody>
 
         </table>
-
+        <span>{{ $companies->links() }}</span>
       </div>
 
 

@@ -15,7 +15,7 @@ class OthersController extends Controller
      */
     public function index()
     {
-        $others = Others::all();
+        $others = Others::paginate(20);
         return view('user.others', compact('others'));
     }
 
@@ -26,7 +26,7 @@ class OthersController extends Controller
      */
     public function create()
     {
-        $others = Others::all();
+        $others = Others::paginate(10);
         return view('admin.services.others', compact('others'));
     }
 

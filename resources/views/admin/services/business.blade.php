@@ -181,9 +181,11 @@
                         </tr>
                       </thead>
                       <tbody>
+                          <?php $i=0 ?>
                           @foreach ($business as $bus)
+                          <?php $i++ ?>
                         <tr>
-                          <td>{{ $bus->id }}</td>
+                          <td>{{ $i }}</td>
                           <td><img src="{{ asset('storage/images/business/').$bus->image }}" alt=""></td>
                           <td>{{ $bus->title }}</td>
                           <td>{{ $bus->details }}</td>

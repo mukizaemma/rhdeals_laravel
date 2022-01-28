@@ -65,11 +65,12 @@ https://templatemo.com/tm-546-sixteen-clothing
               </tr>
             </thead>
             <tbody>
+                <?php $i=0 ?>
                 @foreach ($data as $talent)
-
+                <?php $i++ ?>
 
               <tr>
-                <td>{{ $talent->id }}</td>
+                <td>{{ $i }}</td>
                 <td><img src="{{ asset('storage/images/talents/').$talent->image }}" alt="" style="width: 120px;"></td>
                 <td>{{ $talent->names }}</td>
                 <td>{{ $talent->talent }}</td>
@@ -80,7 +81,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           </tbody>
 
         </table>
-
+        <span>{{ $data->links() }}</span>
       </div>
 
 

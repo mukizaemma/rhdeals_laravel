@@ -88,9 +88,11 @@
                             </tr>
                           </thead>
                           <tbody>
+                            <?php $i=0 ?>
                             @foreach ($plots as $plot)
+                            <?php $i++ ?>
                             <tr>
-                              <td>{{ $plot->id }}</td>
+                              <td>{{ $i }}</td>
                               <td><img src="{{ asset('/storage/images/plots/').$plot->image }}" alt="{{ $plot->title }}"></td>
                               <td>{{ $plot->location }}</td>
                               <td>{{ $plot->size }}</td>

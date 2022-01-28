@@ -84,9 +84,11 @@ https://templatemo.com/tm-546-sixteen-clothing
             </tr>
           </thead>
           <tbody>
+            <?php $i=0 ?>
             @foreach($data as $plot)
+            <?php $i++ ?>
             <tr>
-              <td>{{ $plot->id }}</td>
+              <td>{{ $i }}</td>
               <td> <img class="card-img-top lazyestload" src="{{ asset('storage/images/houses/'.$plot->image) }}"
                 alt="{{ $plot->title }}" style="width: 120px;"></td>
               <td>{{ $plot->pnum }}</td>
@@ -101,7 +103,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           </tbody>
 
         </table>
-
+        <span>{{ $data->links() }}</span>
       </div>
 
 

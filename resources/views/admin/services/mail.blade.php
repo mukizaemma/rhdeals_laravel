@@ -87,9 +87,11 @@
                           </tr>
                         </thead>
                         <tbody>
+                            <?php $i=0 ?>
                             @foreach ($mail as $mail)
+                            <?php $i++ ?>
                           <tr>
-                            <td>{{ $mail->id }}</td>
+                            <td>{{ $i }}</td>
                             <td>{{ $mail->names }}</td>
                             <td>{{ $mail->email }}</td>
                             <td>{{ $mail->phone }}</td>

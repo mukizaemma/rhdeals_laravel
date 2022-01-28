@@ -91,9 +91,11 @@
                             </tr>
                           </thead>
                           <tbody>
+                            <?php $i=0 ?>
                             @foreach ($data as $house)
+                            <?php $i++ ?>
                             <tr>
-                              <td>{{ $house->id }}</td>
+                              <td>{{ $i }}</td>
                               <td><img src="{{ asset('/storage/images/houses').$house->image }}" alt="{{ $house->title }}" style="width: 60px;"></td>
                               <td>{{ $house->title }}</td>
                               <td>{{ $house->location }}</td>

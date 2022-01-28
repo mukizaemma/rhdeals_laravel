@@ -191,15 +191,17 @@
                           <th>#</th>
                           <th>District</th>
                           <th style="width: 50px;"!important>Opportunity Description</th>
-                          <th >Pone</th>
+                          <th >Phone</th>
                           <th >Email</th>
                           <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
+                        <?php $i=0 ?>
                           @foreach ($opportunities as $opt)
+                          <?php $i++ ?>
                         <tr>
-                          <td>{{ $opt->id }}</td>
+                          <td>{{ $i }}</td>
                           {{-- <td><img src="{{ asset('storage/images/oppotunities/').$opt->image }}" alt=""></td> --}}
                           <td>{{ $opt->district }}</td>
                           <td>{{ $opt->details }}</td>

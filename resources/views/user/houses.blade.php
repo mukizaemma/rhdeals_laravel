@@ -86,9 +86,11 @@ https://templatemo.com/tm-546-sixteen-clothing
             </tr>
           </thead>
           <tbody>
+            <?php $i=0 ?>
             @foreach ($data as $house)
+            <?php $i++ ?>
             <tr>
-              <td>{{ $house->id }}</td>
+              <td>{{ $i }}</td>
               <td> <img class="card-img-top lazyestload" src="{{ asset('storage/images/houses/'.$house->image) }}"
                 alt="{{ $house->title }}" style="width: 120px;"></td>
               <td>{{ $house->location }}</td>
@@ -104,7 +106,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           </tbody>
 
         </table>
-
+        <span>{{ $data->links() }}</span>
       </div>
 
 

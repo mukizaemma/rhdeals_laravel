@@ -156,9 +156,11 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <?php $i=0 ?>
                           @foreach ($cars as $car)
+                          <?php $i++ ?>
                         <tr>
-                          <td>{{ $car->id }}</td>
+                          <td>{{ $i }}</td>
                           <td><img src="{{ asset('storage/images/cars/').$car->image }}" alt=""></td>
                           <td>{{ $car->title }}</td>
                           <td>{{ $car->type }}</td>

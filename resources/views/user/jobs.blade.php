@@ -81,11 +81,12 @@ https://templatemo.com/tm-546-sixteen-clothing
               </tr>
             </thead>
             <tbody>
+                <?php $i=0 ?>
                 @foreach ($data as $job)
-
+                <?php $i++ ?>
 
               <tr>
-                <td>{{ $job->id }}</td>
+                <td>{{ $i }}</td>
                 <td><img src="{{ asset('storage/images/jobs/').$job->image }}" alt="" style="width: 120px;"></td>
                 <td>{{ $job->institution }}</td>
                 <td>{{ $job->title }}</td>
@@ -96,7 +97,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           </tbody>
 
         </table>
-
+        <span>{{ $data->links() }}</span>
       </div>
 
 
