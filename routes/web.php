@@ -128,8 +128,8 @@ Route::post('/updateHotel/{id}', [HotelsController::class, 'update']);
 Route::get('/Opportunities', [OpportunitiesController::class, 'index']);
 Route::get('/opportunities', [OpportunitiesController::class, 'create']);
 Route::post('/saveOport', [OpportunitiesController::class, 'store']);
-Route::get('/delete/{id}', [OpportunitiesController::class, 'destroy']);
-Route::get('/editOp/{id}', [OpportunitiesController::class, 'edit']);
+Route::get('/deleteOport/{id}', [OpportunitiesController::class, 'destroy']);
+Route::get('/editOport/{id}', [OpportunitiesController::class, 'edit']);
 Route::post('/updateOport/{id}', [OpportunitiesController::class, 'update']);
 
 Route::post('/sendMessage', [MessagesController::class, 'store']);

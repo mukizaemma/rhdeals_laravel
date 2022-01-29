@@ -59,8 +59,8 @@
             {{-- @include('admin.body') --}}
             <div class="container-fluid bg-light">
                 <div class="container mt-5" >
-                    <a href="{{ url('/barResto') }}" class="btn btn-primary btn-sm outlined mb-3">Back to BarsResto</a>
-                    <h1 class="title">Editing Bars & Restorants </h1>
+                    <a href="{{ url('/opportunities') }}" class="btn btn-primary btn-sm outlined mb-3">Back to Opportunities</a>
+                    <h1 class="title">Editing Opportunity </h1>
 
                     <div class="row">
 
@@ -80,7 +80,7 @@
                                     <div class="form-group form-group-icon col-md-3">
                                       <label for="first-name">Province</label>
                                       <select class="form-control border-success" name="province" id="province" >
-                                          <option value=""></option>
+                                          {{-- <option value=""></option> --}}
                                           @foreach (App\Models\Province::orderBy('name')->get() as $province )
                                         <option value="{{ $province->name }}">
                                         {{ $province->name }}</option>
@@ -90,7 +90,7 @@
                                     <div class="form-group form-group-icon col-md-3">
                                         <label for="first-name">District</label>
                                         <select class="form-control border-success" name="district" id="district">
-                                          <option value="">{{ $districts->name }}</option>
+                                          {{-- <option value="">{{ $districts->name }}</option> --}}
                                           @foreach (App\Models\District::orderBy('name')->get() as $district )
                                           <option value="{{ $district->name }}">
                                           {{ $district->name }}</option>
@@ -138,9 +138,9 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label>Teatured Logo</label>
+                                            <label>Featured Logo</label>
                                             <label id="projectinput7" class="file center-block">
-                                                <img src="{{ asset('storage/images/oppotunities/').$data->image }}" alt="">
+                                                <img src="{{ asset('storage/images/opportunities/').$data->image }}" alt="" width="120px">
                                                 <span class="file-custom"></span>
                                             </label>
                                         </div>

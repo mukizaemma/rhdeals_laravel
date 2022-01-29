@@ -210,8 +210,8 @@
 
                           <td>
                               <div class="btn-group">
-                                <button class="btn btn-primary" href="{{ url('editOp', $opt->id) }}">Edit</button>
-                                <button href="{{ url('delete',$opt->id) }}" onclick="return confirm('Are you sure to delete this?')" class="btn btn-danger">Delete</button>
+                                <a class="btn btn-primary" href="{{ url('editOport', $opt->id) }}">Edit</a>
+                                <a href="{{ url('deleteOport',$opt->id) }}" onclick="return confirm('Are you sure to delete this?')" class="btn btn-danger">Delete</a>
                               </div>
                           </td>
                         </tr>

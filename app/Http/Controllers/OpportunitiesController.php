@@ -121,7 +121,7 @@ class OpportunitiesController extends Controller
 
         $data->update();
 
-        return redirect('barResto')->with('success', 'Opportunity has been updated');
+        return redirect('opportunities')->with('success', 'Opportunity has been updated');
     }
 
     /**
@@ -132,8 +132,8 @@ class OpportunitiesController extends Controller
      */
     public function destroy($id)
     {
-        $data = Opportunity::findOrFail($id);
-        $data->delete();
+        $data = Opportunity::find($id);
+        $data->delete($id);
 
         return redirect()->back()->with('success', 'Item has been deleted');
     }
