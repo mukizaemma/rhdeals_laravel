@@ -15,7 +15,7 @@ class CarsController extends Controller
      */
     public function index()
     {
-        $data = Car::latest();
+        $data = Car::all();
         return view('user.cars', compact('data'));
     }
 
