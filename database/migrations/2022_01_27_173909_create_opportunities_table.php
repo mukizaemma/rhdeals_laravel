@@ -21,7 +21,7 @@ class CreateOpportunitiesTable extends Migration
             $table->string('cell')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
-            $table->string('details')->nullable();
+            $table->longText('details')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });
