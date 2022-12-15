@@ -19,6 +19,7 @@ use App\Http\Controllers\OthersController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\FundsController;
 use App\Http\Controllers\CompaniesController;
+use App\Http\Controllers\EmployeesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -162,3 +163,10 @@ Route::get('/Companies', [CompaniesController::class, 'show']);
 Route::post('/saveCompany', [CompaniesController::class, 'store']);
 Route::get('/editcompany/{id}', [CompaniesController::class, 'edit']);
 Route::post('/updateCompany/{id}', [CompaniesController::class, 'update']);
+
+Route::get('/employees', [EmployeesController::class, 'index']);
+Route::get('/JobSeekers', [EmployeesController::class, 'viewEmployee']);
+Route::post('/saveEmployee', [EmployeesController::class, 'store']);
+Route::get('/editEmployee/{id}', [EmployeesController::class, 'edit']);
+Route::post('/updateEmployee/{id}', [EmployeesController::class, 'update']);
+Route::get('/deleteEmployee/{id}', [EmployeesController::class, 'destroy']);

@@ -97,6 +97,7 @@
                     {{-- <li class="nav-item"> <a class="nav-link" href="{{ url('talents') }}">Talents</a></li> --}}
                     <li class="nav-item"> <a class="nav-link" href="{{ url('services') }}">Services Linkage</a></li>
                     <li class="nav-item"> <a class="nav-link" href="{{ url('business') }}">Business Linkage</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('employees') }}">Job Seekers</a></li>
                 </ul>
             </div>
         </li>

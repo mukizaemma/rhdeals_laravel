@@ -41,7 +41,10 @@
                 <a class="nav-link" href="{{ url('Jobs') }}">Advertised Jobs</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url('Services') }}">Service Linkage</a>
+                <a class="nav-link" href="{{ url('JobSeekers') }}">Job Seekers</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('Services') }}">Special Experts</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('Business') }}">Get a Biz Partner</a>
