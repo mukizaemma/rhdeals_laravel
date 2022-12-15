@@ -27,7 +27,7 @@ class HousesController extends Controller
 
     public function houseTable()
     {
-        $data = houses::latest()->paginate(10);
+        $data = houses::latest()->get();
         return view('user.houses', compact('data'));
     }
 

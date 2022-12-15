@@ -106,8 +106,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           </tbody>
 
         </table>
-        {{-- <span>{{ $data->links() }}</span> --}}
-        {{-- {{ $house->links() }} --}}
+        <span style="width: 20px">{{ $data->links() }}</span>
       </div>
 
 
