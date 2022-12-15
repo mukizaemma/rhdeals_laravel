@@ -47,7 +47,7 @@
                 <a class="nav-link" href="{{ url('Services') }}">Special Experts</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url('Business') }}">Get a Biz Partner</a>
+                <a class="nav-link" href="{{ url('Business') }}">Find a Biz Partner</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('Companies') }}">Useful Companies</a>
