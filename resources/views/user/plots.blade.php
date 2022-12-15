@@ -103,7 +103,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           </tbody>
 
         </table>
-        <span>{{ $data->links() }}</span>
+        {{-- <span>{{ $data->links() }}</span> --}}
       </div>
 
 

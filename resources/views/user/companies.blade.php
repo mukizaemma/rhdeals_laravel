@@ -99,7 +99,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           </tbody>
 
         </table>
-        <span>{{ $companies->links() }}</span>
+        {{-- <span>{{ $companies->links() }}</span> --}}
       </div>
 
 
