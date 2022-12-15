@@ -17,7 +17,7 @@ class OpportunitiesController extends Controller
      */
     public function index()
     {
-        $data = Opportunity::latest()->paginate(20);
+        $data = Opportunity::latest()->get();
         return view('user.opportunities', compact('data'));
     }
 

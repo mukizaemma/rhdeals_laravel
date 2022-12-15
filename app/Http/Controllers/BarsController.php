@@ -16,7 +16,7 @@ class BarsController extends Controller
      */
     public function index()
     {
-        $data = BarsResto::latest()->paginate(20);
+        $data = BarsResto::latest()->get();
         return view('user.barsResto', compact('data'));
     }
 

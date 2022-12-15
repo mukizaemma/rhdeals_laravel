@@ -16,7 +16,7 @@ class TendersController extends Controller
      */
     public function index()
     {
-        $data = tender::query()->paginate(10);
+        $data = tender::query()->get();
         return view('user.tenders', compact('data'));
     }
 

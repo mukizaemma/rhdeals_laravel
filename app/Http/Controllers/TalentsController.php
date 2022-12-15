@@ -15,7 +15,7 @@ class TalentsController extends Controller
      */
     public function index()
     {
-        $data = Talent::latest()->paginate(20);
+        $data = Talent::latest()->get();
         return view('user.talents', compact('data'));
     }
 

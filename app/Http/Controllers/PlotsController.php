@@ -15,7 +15,7 @@ class PlotsController extends Controller
      */
     public function index()
     {
-        $data = plot::latest()->paginate(20);
+        $data = plot::latest()->get();
         return view('user.plots', compact('data'));
     }
 

@@ -16,7 +16,7 @@ class JobsCotroller extends Controller
      */
     public function index()
     {
-        $jobs = Job::latest()->paginate(20);
+        $jobs = Job::latest()->get();
         return view('admin.services.jobs', compact('jobs'));
     }
 

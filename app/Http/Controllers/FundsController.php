@@ -10,7 +10,7 @@ class FundsController extends Controller
 {
     public function index()
     {
-        $data = Funds::latest()->paginate(10);
+        $data = Funds::latest()->get();
         return view('user.funds', compact('data'));
         // ->with('i', (request()->input('page', 1) -1) * 5);
     }

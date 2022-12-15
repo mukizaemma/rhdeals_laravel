@@ -15,7 +15,7 @@ class OthersController extends Controller
      */
     public function index()
     {
-        $others = Others::paginate(20);
+        $others = Others::get();
         return view('user.others', compact('others'));
     }
 

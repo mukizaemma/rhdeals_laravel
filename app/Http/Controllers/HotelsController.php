@@ -15,7 +15,7 @@ class HotelsController extends Controller
      */
     public function index()
     {
-        $data = Hotel::latest()->paginate(20);
+        $data = Hotel::latest()->get();
         return view('user.hotels', compact('data'));
     }
 

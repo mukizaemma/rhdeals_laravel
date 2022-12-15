@@ -15,7 +15,7 @@ class BusinessController extends Controller
      */
     public function index()
     {
-        $business = Business::latest()->paginate(20);
+        $business = Business::latest()->get();
         return view('user.business', compact('business'));
     }
 
