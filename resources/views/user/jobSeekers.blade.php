@@ -92,7 +92,7 @@ https://templatemo.com/tm-546-sixteen-clothing
               <td>{{ $serv->names }}</td>
               <td>{{ $serv->phone }}</td>
               <td>{{ $serv->career }}</td>
-              <td>{{ $serv->cv }}</td>
+              <td>{{ $serv->cv}}</td>
 
             </tr>
             @endforeach
