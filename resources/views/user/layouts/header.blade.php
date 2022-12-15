@@ -56,9 +56,9 @@
                 <a class="nav-link" href="{{ url('Opportunities') }}">Opportunities in Districts</a>
               </li>
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a class="nav-link" href="{{ url('/Contactus') }}">Contacts</a>
-            </li>
+            </li> --}}
 
             {{-- <li  class="nav-item">
             @if (Route::has('login'))
